@@ -1,0 +1,127 @@
+<%- include('partials/layout') %>
+
+<div class="p-8 max-w-4xl">
+  <h1 class="font-heading font-bold text-2xl text-brand-text mb-1">
+    <%= article ? 'Edit Article' : 'New Article' %>
+  </h1>
+  <p class="text-brand-muted text-sm mb-8">
+    <%= article ? 'Update the article details below.' : 'Fill in the details to publish a new story.' %>
+  </p>
+
+  <% if (error) { %>
+  <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-4 mb-6 text-red-400 text-sm"><%= error %></div>
+  <% } %>
+
+  <form method="POST" action="<%= article ? `/admin/articles/${article.id}/edit` : '/admin/articles/new' %>"
+        enctype="multipart/form-data" class="space-y-6">
+
+    <div>
+      <label class="form-label">Title *</label>
+      <input type="text" name="title" required value="<%= article ? article.title : '' %>"
+             placeholder="Article headline" class="form-input" />
+    </div>
+
+    <div>
+      <label class="form-label">Excerpt</label>
+      <textarea name="excerpt" rows="2" placeholder="Short summary shown on cards and as meta description"
+                class="form-input resize-none"><%= article ? article.excerpt : '' %></textarea>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div>
+        <label class="form-label">Category</label>
+        <select name="category" class="form-input">
+          <option value="AI"   <%= article && article.category === 'AI' ? 'selected' : '' %>>AI</option>
+          <option value="Tech" <%= article && article.category === 'Tech' ? 'selected' : '' %>>Tech</option>
+        </select>
+      </div>
+      <div>
+        <label class="form-label">Tags (comma-separated)</label>
+        <input type="text" name="tags" value="<%= article ? article.tags.join(', ') : '' %>"
+               placeholder="OpenAI, LLMs, Research" class="form-input" />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div>
+        <label class="form-label">Status</label>
+        <select name="status" class="form-input">
+          <option value="draft"     <%= article && article.status === 'draft' ? 'selected' : '' %>>Draft</option>
+          <option value="published" <%= article && article.status === 'published' ? 'selected' : '' %>>Published</option>
+        </select>
+      </div>
+      <div>
+        <label class="form-label">Author Name</label>
+        <input type="text" name="author[name]" value="<%= article ? article.author.name : 'TechZynq Staff' %>"
+               class="form-input" />
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <input type="checkbox" name="isBreaking" id="isBreaking" value="true"
+             <%= article && article.isBreaking ? 'checked' : '' %>
+             class="w-4 h-4 rounded border-brand-border bg-brand-elevated text-brand-primary focus:ring-brand-cyan" />
+      <label for="isBreaking" class="text-sm text-brand-muted">Mark as Breaking / Live story</label>
+    </div>
+
+    <div>
+      <label class="form-label">Cover Image</label>
+      <% if (article && article.coverImage && !article.coverImage.includes('placeholder')) { %>
+      <img src="<%= article.coverImage %>-sm.webp" class="w-32 h-20 object-cover rounded-lg mb-2 border border-brand-border" />
+      <% } %>
+      <input type="file" name="coverImage" accept="image/*" class="form-input file:bg-brand-primary file:text-white file:border-0 file:rounded-md file:px-3 file:py-1.5 file:mr-3 file:text-xs" />
+      <p class="text-xs text-brand-tertiary mt-1">Leave blank to keep existing image. Will be auto-resized to 3 sizes.</p>
+    </div>
+
+    <div>
+      <label class="form-label">Body</label>
+      <div id="editor-toolbar" class="bg-brand-elevated border border-brand-border border-b-0 rounded-t-lg"></div>
+      <div id="editor" class="bg-brand-elevated border border-brand-border rounded-b-lg text-brand-text" style="min-height: 350px;"><%- article ? article.body : '' %></div>
+      <input type="hidden" name="body" id="body-input" />
+    </div>
+
+    <div class="flex items-center gap-3 pt-2">
+      <button type="submit" class="btn-primary">
+        <%= article ? 'Save Changes' : 'Create Article' %>
+      </button>
+      <a href="/admin/articles" class="btn-outline">Cancel</a>
+    </div>
+  </form>
+</div>
+
+</div>
+
+<!-- Quill rich text editor via CDN -->
+<link href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
+<script>
+  const quill = new Quill('#editor', {
+    theme: 'snow',
+    modules: {
+      toolbar: [
+        [{ header: [2, 3, false] }],
+        ['bold', 'italic', 'underline'],
+        ['blockquote', 'code-block'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        ['link'],
+        ['clean'],
+      ],
+    },
+  });
+
+  const form = document.querySelector('form');
+  form.addEventListener('submit', () => {
+    document.getElementById('body-input').value = quill.root.innerHTML;
+  });
+</script>
+
+<style>
+  .ql-toolbar.ql-snow { border-color: #1C2236 !important; }
+  .ql-container.ql-snow { border-color: #1C2236 !important; font-family: Inter, sans-serif; font-size: 15px; }
+  .ql-snow .ql-stroke { stroke: #9AA4B8; }
+  .ql-snow .ql-picker { color: #9AA4B8; }
+  .ql-editor { color: #F4F6FB; min-height: 320px; }
+  .ql-editor.ql-blank::before { color: #5C6678; }
+</style>
+</body>
+</html>

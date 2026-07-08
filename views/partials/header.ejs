@@ -1,0 +1,104 @@
+<!-- Breaking ticker bar -->
+<% if (typeof hero !== 'undefined' && hero && hero.isBreaking) { %>
+<div class="bg-brand-primary/10 border-b border-brand-primary/20 py-2 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-3">
+    <span class="flex-shrink-0 flex items-center gap-1.5">
+      <span class="w-2 h-2 rounded-full bg-brand-cyan live-dot inline-block"></span>
+      <span class="font-mono text-xs font-medium text-brand-cyan tracking-widest uppercase">Breaking</span>
+    </span>
+    <div class="flex-1 overflow-hidden">
+      <div class="ticker-content text-sm text-brand-muted">
+        <a href="/article/<%= hero.slug %>" class="hover:text-brand-cyan transition-colors">
+          <%= hero.title %>
+        </a>
+        &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;
+        <a href="/article/<%= hero.slug %>" class="hover:text-brand-cyan transition-colors">
+          <%= hero.excerpt %>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
+
+<!-- Main header -->
+<header id="site-header" class="sticky top-0 z-40 transition-all duration-300 border-b border-brand-border/0" data-scrolled="false">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center group">
+        <img src="/images/logo-h.png" alt="TechZynq" class="h-10 w-auto" style="mix-blend-mode:screen;" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="/"       class="nav-link <%= currentPath === '/'       ? 'active' : '' %>">Home</a>
+        <a href="/latest" class="nav-link <%= currentPath === '/latest' ? 'active' : '' %>">Latest</a>
+        <a href="/ai"     class="nav-link <%= currentPath === '/ai'     ? 'active' : '' %>">AI</a>
+        <a href="/tech"   class="nav-link <%= currentPath === '/tech'   ? 'active' : '' %>">Tech</a>
+        <a href="/about"  class="nav-link <%= currentPath === '/about'  ? 'active' : '' %>">About</a>
+      </nav>
+
+      <!-- Right actions -->
+      <div class="flex items-center gap-3">
+        <!-- Search -->
+        <button id="search-trigger" aria-label="Search" class="p-2 rounded-lg text-brand-muted hover:text-brand-cyan hover:bg-brand-elevated transition-all duration-200">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+        <!-- Mobile menu -->
+        <button id="mobile-menu-trigger" class="md:hidden p-2 rounded-lg text-brand-muted hover:text-brand-text transition-colors" aria-label="Menu">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-50 bg-brand-bg flex flex-col hidden">
+  <div class="flex items-center justify-between px-6 h-16 border-b border-brand-border">
+    <a href="/">
+      <img src="/images/logo-h.png" alt="TechZynq" class="h-9 w-auto" style="mix-blend-mode:screen;" />
+    </a>
+    <button id="mobile-menu-close" class="p-2 text-brand-muted hover:text-brand-text">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" d="M6 18 18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="flex flex-col px-6 py-8 gap-2 flex-1">
+    <a href="/"       class="text-2xl font-heading font-bold text-brand-text hover:text-brand-cyan transition-colors py-3 border-b border-brand-border">Home</a>
+    <a href="/latest" class="text-2xl font-heading font-bold text-brand-text hover:text-brand-cyan transition-colors py-3 border-b border-brand-border">Latest News</a>
+    <a href="/ai"     class="text-2xl font-heading font-bold text-brand-text hover:text-brand-cyan transition-colors py-3 border-b border-brand-border">AI</a>
+    <a href="/tech"   class="text-2xl font-heading font-bold text-brand-text hover:text-brand-cyan transition-colors py-3 border-b border-brand-border">Tech</a>
+    <a href="/about"  class="text-2xl font-heading font-bold text-brand-text hover:text-brand-cyan transition-colors py-3 border-b border-brand-border">About</a>
+    <a href="/contact" class="text-2xl font-heading font-bold text-brand-text hover:text-brand-cyan transition-colors py-3">Contact</a>
+  </nav>
+</div>
+
+<!-- Search overlay -->
+<div id="search-overlay" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-brand-bg/90 backdrop-blur-xl" id="search-backdrop"></div>
+  <div class="relative z-10 max-w-2xl mx-auto pt-24 px-4">
+    <div class="glass rounded-2xl p-6">
+      <div class="flex items-center gap-3 border-b border-brand-border pb-4">
+        <svg class="w-5 h-5 text-brand-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input id="search-input" type="search" placeholder="Search TechZynq…"
+               class="flex-1 bg-transparent text-brand-text placeholder-brand-tertiary text-lg focus:outline-none" autocomplete="off" />
+        <button id="search-close" class="text-brand-muted hover:text-brand-text transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" d="M6 18 18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div id="search-results" class="mt-4 space-y-2 max-h-96 overflow-y-auto scrollbar-hide"></div>
+      <p id="search-hint" class="text-center text-brand-tertiary text-sm mt-4">Type at least 2 characters to search</p>
+    </div>
+  </div>
+</div>

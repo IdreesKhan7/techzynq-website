@@ -1,0 +1,175 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main>
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <% if (hero) {
+    const heroImg = hero.coverImage && !hero.coverImage.includes('placeholder')
+      ? hero.coverImage + '-lg.webp'
+      : (hero.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg');
+    const heroDate = hero.publishedAt ? new Date(hero.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '';
+  %>
+  <section class="relative min-h-[70vh] flex items-end overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img src="<%= heroImg %>" alt="<%= hero.title %>" class="w-full h-full object-cover" />
+      <div class="absolute inset-0" style="background: linear-gradient(to top, #05070D 40%, rgba(5,7,13,0.5) 70%, rgba(5,7,13,0.2) 100%)"></div>
+      <!-- Circuit decoration -->
+      <div class="absolute inset-0 circuit-bg opacity-10"></div>
+    </div>
+
+    <!-- Gradient accent line -->
+    <div class="absolute top-0 left-0 right-0 h-1 bg-brand-gradient-r opacity-60"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-14 pt-32 w-full">
+      <div class="max-w-3xl fade-up">
+        <!-- Kicker -->
+        <div class="flex items-center gap-3 mb-4">
+          <span class="<%= hero.category === 'AI' ? 'badge-ai' : 'badge-tech' %>"><%= hero.category %></span>
+          <% if (hero.isBreaking) { %>
+          <span class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-brand-cyan live-dot"></span>
+            <span class="font-mono text-xs text-brand-cyan uppercase tracking-widest">Breaking</span>
+          </span>
+          <% } %>
+          <span class="font-mono text-xs text-brand-muted"><%= heroDate %></span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-brand-text leading-tight mb-4 text-balance">
+          <%= hero.title %>
+        </h1>
+
+        <!-- Excerpt -->
+        <p class="text-brand-muted text-lg leading-relaxed mb-6 max-w-2xl"><%= hero.excerpt %></p>
+
+        <!-- CTA -->
+        <a href="/article/<%= hero.slug %>" class="btn-primary">
+          Read Full Story
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+
+        <!-- Read time -->
+        <p class="mt-4 font-mono text-xs text-brand-tertiary uppercase tracking-widest">
+          <%= hero.author.name %> · <%= hero.readTimeMinutes %> min read
+        </p>
+      </div>
+    </div>
+  </section>
+  <% } %>
+
+  <!-- ── Latest Stories ────────────────────────────────────────────────── -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <div class="flex items-center justify-between mb-8">
+      <div class="fade-up">
+        <span class="font-mono text-xs text-brand-cyan uppercase tracking-widest block mb-1">Fresh off the wire</span>
+        <h2 class="font-heading font-bold text-2xl text-brand-text">Latest Stories</h2>
+      </div>
+      <a href="/latest" class="btn-outline text-xs fade-up">View all →</a>
+    </div>
+
+    <!-- Asymmetric grid: 1 large + 5 small on desktop -->
+    <% if (latest && latest.length > 0) { %>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Featured (first article, spans 2 rows) -->
+      <% const feat = latest[0]; const featImg = feat.coverImage && !feat.coverImage.includes('placeholder') ? feat.coverImage + '-lg.webp' : (feat.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg'); const featDate = feat.publishedAt ? new Date(feat.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : ''; %>
+      <a href="/article/<%= feat.slug %>" class="card group lg:row-span-2 flex flex-col h-full hover:shadow-glow-cyan hover:-translate-y-0.5 transition-all duration-300 fade-up">
+        <div class="relative overflow-hidden h-56 lg:h-72 flex-shrink-0">
+          <img src="<%= featImg %>" alt="<%= feat.title %>" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-card/80 to-transparent"></div>
+          <div class="absolute top-3 left-3"><span class="<%= feat.category === 'AI' ? 'badge-ai' : 'badge-tech' %>"><%= feat.category %></span></div>
+        </div>
+        <div class="flex flex-col flex-1 p-5">
+          <h3 class="font-heading font-bold text-lg text-brand-text text-balance leading-snug mb-2 group-hover:text-brand-cyan transition-colors"><%= feat.title %></h3>
+          <p class="text-brand-muted text-sm leading-relaxed mb-4 flex-1 line-clamp-3"><%= feat.excerpt %></p>
+          <div class="flex items-center gap-2 pt-2 border-t border-brand-border/50">
+            <span class="font-mono text-xs text-brand-tertiary"><%= featDate %></span>
+            <span class="text-brand-tertiary">·</span>
+            <span class="font-mono text-xs text-brand-tertiary"><%= feat.readTimeMinutes %> MIN READ</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Remaining articles -->
+      <% for (let i = 1; i < Math.min(latest.length, 6); i++) {
+         const a = latest[i];
+         const aImg = a.coverImage && !a.coverImage.includes('placeholder') ? a.coverImage + '-md.webp' : (a.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg');
+         const aDate = a.publishedAt ? new Date(a.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '';
+      %>
+      <a href="/article/<%= a.slug %>" class="card group flex flex-row h-full hover:shadow-glow-cyan hover:-translate-y-0.5 transition-all duration-300 fade-up" style="animation-delay: <%= i*80 %>ms">
+        <div class="relative overflow-hidden w-28 sm:w-36 flex-shrink-0">
+          <img src="<%= aImg %>" alt="<%= a.title %>" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        </div>
+        <div class="flex flex-col justify-center p-4 flex-1">
+          <span class="<%= a.category === 'AI' ? 'badge-ai' : 'badge-tech' %> mb-2 self-start"><%= a.category %></span>
+          <h3 class="font-heading font-semibold text-sm text-brand-text leading-snug mb-2 line-clamp-2 group-hover:text-brand-cyan transition-colors"><%= a.title %></h3>
+          <span class="font-mono text-xs text-brand-tertiary"><%= aDate %> · <%= a.readTimeMinutes %> MIN</span>
+        </div>
+      </a>
+      <% } %>
+    </div>
+    <% } %>
+  </section>
+
+  <!-- ── AI Highlight Row ─────────────────────────────────────────────── -->
+  <% if (aiList && aiList.length > 0) { %>
+  <section class="border-t border-brand-border py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between mb-8">
+        <div class="fade-up">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-1 h-5 rounded-full bg-brand-gradient-r"></div>
+            <span class="font-mono text-xs text-brand-cyan uppercase tracking-widest">Artificial Intelligence</span>
+          </div>
+          <h2 class="font-heading font-bold text-2xl text-brand-text">AI Deep Dives</h2>
+        </div>
+        <a href="/ai" class="btn-outline text-xs fade-up">View AI →</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <% aiList.forEach((a, i) => { %>
+        <div class="fade-up" style="animation-delay: <%= i*80 %>ms">
+          <% let size = 'md'; let showExc = false; %>
+          <%- include('partials/article-card', { article: a, size, showExc }) %>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+  <% } %>
+
+  <!-- ── Newsletter band ──────────────────────────────────────────────── -->
+  <%- include('partials/newsletter-band') %>
+
+  <!-- ── Tech Highlight Row ───────────────────────────────────────────── -->
+  <% if (techList && techList.length > 0) { %>
+  <section class="border-t border-brand-border py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between mb-8">
+        <div class="fade-up">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-1 h-5 rounded-full" style="background: linear-gradient(180deg,#22D3EE,#3B5BFF)"></div>
+            <span class="font-mono text-xs text-brand-cyan uppercase tracking-widest">Technology</span>
+          </div>
+          <h2 class="font-heading font-bold text-2xl text-brand-text">Tech Spotlight</h2>
+        </div>
+        <a href="/tech" class="btn-outline text-xs fade-up">View Tech →</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <% techList.forEach((a, i) => { %>
+        <div class="fade-up" style="animation-delay: <%= i*80 %>ms">
+          <% let size = 'md'; let showExc = false; %>
+          <%- include('partials/article-card', { article: a, size, showExc }) %>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts') %>
+</body>
+</html>

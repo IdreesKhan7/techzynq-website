@@ -1,0 +1,54 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+  <div class="mb-10 fade-up">
+    <div class="flex items-center gap-2 mb-2">
+      <div class="w-1 h-6 rounded-full bg-brand-gradient-r"></div>
+      <span class="font-mono text-xs text-brand-cyan uppercase tracking-widest"><%= category === 'AI' ? 'Artificial Intelligence' : 'Technology' %></span>
+    </div>
+    <h1 class="font-heading font-bold text-4xl text-brand-text"><%= category === 'AI' ? 'AI Coverage' : 'Technology' %></h1>
+    <p class="text-brand-muted mt-2 max-w-xl">
+      <%= category === 'AI' ? 'Research, models, agents, and the people building the AI-powered future.' : 'Hardware, software, startups, and the products shaping tomorrow.' %>
+    </p>
+  </div>
+
+  <% if (list && list.length > 0) { %>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+    <% list.forEach((a, i) => { %>
+    <div class="fade-up" style="animation-delay: <%= Math.min(i, 5) * 60 %>ms">
+      <% let size = 'md'; let showExc = true; %>
+      <%- include('partials/article-card', { article: a, size, showExc }) %>
+    </div>
+    <% }) %>
+  </div>
+
+  <% const totalPages = Math.ceil(total / perPage); %>
+  <% if (totalPages > 1) { %>
+  <div class="flex items-center justify-center gap-2">
+    <% if (page > 1) { %>
+    <a href="/<%= category.toLowerCase() %>?page=<%= page - 1 %>" class="btn-outline">← Previous</a>
+    <% } %>
+    <% for (let p = 1; p <= totalPages; p++) { %>
+    <a href="/<%= category.toLowerCase() %>?page=<%= p %>"
+       class="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-medium transition-all
+              <%= p === page ? 'bg-brand-primary text-white' : 'text-brand-muted hover:text-brand-text hover:bg-brand-elevated' %>">
+      <%= p %>
+    </a>
+    <% } %>
+    <% if (page < totalPages) { %>
+    <a href="/<%= category.toLowerCase() %>?page=<%= page + 1 %>" class="btn-outline">Next →</a>
+    <% } %>
+  </div>
+  <% } %>
+  <% } else { %>
+  <div class="text-center py-20">
+    <p class="text-brand-muted text-lg">No articles yet in <%= category %>.</p>
+  </div>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts') %>
+</body>
+</html>

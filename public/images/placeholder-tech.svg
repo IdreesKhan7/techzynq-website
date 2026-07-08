@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F1A"/>
+      <stop offset="100%" stop-color="#11172A"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B5BFF"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g1)"/>
+  <g opacity="0.5" stroke="#1C2236" stroke-width="1">
+    <line x1="0" y1="120" x2="800" y2="120"/>
+    <line x1="0" y1="260" x2="800" y2="260"/>
+    <line x1="0" y1="380" x2="800" y2="380"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="450" y1="0" x2="450" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+  </g>
+  <rect x="340" y="190" width="120" height="120" rx="12" fill="none" stroke="url(#g2)" stroke-width="2" opacity="0.7"/>
+  <circle cx="340" cy="190" r="4" fill="#22D3EE"/>
+  <circle cx="460" cy="190" r="4" fill="#22D3EE"/>
+  <circle cx="340" cy="310" r="4" fill="#22D3EE"/>
+  <circle cx="460" cy="310" r="4" fill="#22D3EE"/>
+  <text x="400" y="256" font-family="monospace" font-size="14" fill="#22D3EE" text-anchor="middle" opacity="0.8">TECH</text>
+</svg>

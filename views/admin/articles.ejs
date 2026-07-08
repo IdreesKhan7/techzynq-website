@@ -1,0 +1,54 @@
+<%- include('partials/layout') %>
+
+<div class="p-8">
+  <div class="flex items-center justify-between mb-8">
+    <div>
+      <h1 class="font-heading font-bold text-2xl text-brand-text mb-1">Articles</h1>
+      <p class="text-brand-muted text-sm"><%= list.length %> total</p>
+    </div>
+    <a href="/admin/articles/new" class="btn-primary">+ New Article</a>
+  </div>
+
+  <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-brand-border text-left">
+          <th class="px-5 py-3 text-brand-tertiary font-mono text-xs uppercase tracking-widest">Title</th>
+          <th class="px-5 py-3 text-brand-tertiary font-mono text-xs uppercase tracking-widest">Category</th>
+          <th class="px-5 py-3 text-brand-tertiary font-mono text-xs uppercase tracking-widest">Status</th>
+          <th class="px-5 py-3 text-brand-tertiary font-mono text-xs uppercase tracking-widest">Published</th>
+          <th class="px-5 py-3 text-brand-tertiary font-mono text-xs uppercase tracking-widest">Views</th>
+          <th class="px-5 py-3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (list.length === 0) { %>
+        <tr><td colspan="6" class="px-5 py-10 text-center text-brand-muted">No articles yet. <a href="/admin/articles/new" class="text-brand-cyan hover:underline">Create your first one</a>.</td></tr>
+        <% } %>
+        <% list.forEach(a => { %>
+        <tr class="border-b border-brand-border/50 hover:bg-brand-elevated/50 transition-colors">
+          <td class="px-5 py-3 text-brand-text font-medium max-w-sm truncate"><%= a.title %></td>
+          <td class="px-5 py-3 text-brand-muted"><%= a.category %></td>
+          <td class="px-5 py-3">
+            <span class="text-xs px-2 py-0.5 rounded <%= a.status === 'published' ? 'bg-brand-cyan/10 text-brand-cyan' : 'bg-brand-elevated text-brand-muted' %>"><%= a.status %></span>
+            <% if (a.isBreaking) { %><span class="text-xs px-2 py-0.5 rounded bg-brand-primary/20 text-brand-cyan ml-1">breaking</span><% } %>
+          </td>
+          <td class="px-5 py-3 text-brand-muted text-xs"><%= a.publishedAt ? new Date(a.publishedAt).toLocaleDateString() : '—' %></td>
+          <td class="px-5 py-3 text-brand-muted"><%= a.views %></td>
+          <td class="px-5 py-3 text-right whitespace-nowrap">
+            <a href="/article/<%= a.slug %>" target="_blank" class="text-brand-muted hover:text-brand-text text-xs mr-3">View</a>
+            <a href="/admin/articles/<%= a.id %>/edit" class="text-brand-cyan hover:underline text-xs mr-3">Edit</a>
+            <form method="POST" action="/admin/articles/<%= a.id %>/delete" class="inline" onsubmit="return confirm('Delete this article? This cannot be undone.');">
+              <button type="submit" class="text-red-400 hover:underline text-xs">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

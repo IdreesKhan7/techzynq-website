@@ -1,0 +1,4 @@
+{
+  "ignore": ["data/*", "public/uploads/*", "public/css/style.css"],
+  "ext": "js,mjs,cjs,json,ejs"
+}

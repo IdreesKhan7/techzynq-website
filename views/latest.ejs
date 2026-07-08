@@ -1,0 +1,70 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+  <!-- Page header -->
+  <div class="mb-10 fade-up">
+    <span class="font-mono text-xs text-brand-cyan uppercase tracking-widest block mb-2">All stories</span>
+    <h1 class="font-heading font-bold text-4xl text-brand-text">Latest News</h1>
+    <p class="text-brand-muted mt-2">Every article from TechZynq, newest first.</p>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="flex items-center gap-2 mb-8 border-b border-brand-border pb-4 sticky top-16 bg-brand-bg/90 backdrop-blur-md py-3 z-10">
+    <a href="/latest" class="badge <%= !cat ? 'bg-brand-primary/20 text-brand-cyan border-brand-primary/40' : 'bg-brand-elevated text-brand-muted border-brand-border hover:border-brand-cyan/40' %> border px-3 py-1">All</a>
+    <a href="/latest?cat=AI" class="badge <%= cat === 'AI' ? 'badge-ai' : 'bg-brand-elevated text-brand-muted border-brand-border hover:border-brand-cyan/40 border' %> px-3 py-1">AI</a>
+    <a href="/latest?cat=Tech" class="badge <%= cat === 'Tech' ? 'badge-tech' : 'bg-brand-elevated text-brand-muted border-brand-border hover:border-brand-cyan/40 border' %> px-3 py-1">Tech</a>
+    <span class="ml-auto font-mono text-xs text-brand-tertiary"><%= total %> articles</span>
+  </div>
+
+  <!-- Popular tags -->
+  <% if (tags && tags.length > 0) { %>
+  <div class="flex flex-wrap gap-2 mb-10">
+    <% tags.slice(0, 12).forEach(t => { %>
+    <a href="/tag/<%= t.tag %>" class="tag">#<%= t.tag %></a>
+    <% }) %>
+  </div>
+  <% } %>
+
+  <!-- Article grid -->
+  <% if (list && list.length > 0) { %>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+    <% list.forEach((a, i) => { %>
+    <div class="fade-up" style="animation-delay: <%= Math.min(i, 5) * 60 %>ms">
+      <% let size = 'md'; let showExc = true; %>
+      <%- include('partials/article-card', { article: a, size, showExc }) %>
+    </div>
+    <% }) %>
+  </div>
+
+  <!-- Pagination -->
+  <% const totalPages = Math.ceil(total / perPage); %>
+  <% if (totalPages > 1) { %>
+  <div class="flex items-center justify-center gap-2">
+    <% if (page > 1) { %>
+    <a href="/latest?page=<%= page - 1 %><%= cat ? '&cat=' + cat : '' %>" class="btn-outline px-4 py-2">← Previous</a>
+    <% } %>
+    <% for (let p = 1; p <= totalPages; p++) { %>
+    <a href="/latest?page=<%= p %><%= cat ? '&cat=' + cat : '' %>"
+       class="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-medium transition-all
+              <%= p === page ? 'bg-brand-primary text-white' : 'text-brand-muted hover:text-brand-text hover:bg-brand-elevated' %>">
+      <%= p %>
+    </a>
+    <% } %>
+    <% if (page < totalPages) { %>
+    <a href="/latest?page=<%= page + 1 %><%= cat ? '&cat=' + cat : '' %>" class="btn-outline px-4 py-2">Next →</a>
+    <% } %>
+  </div>
+  <% } %>
+  <% } else { %>
+  <div class="text-center py-20">
+    <p class="text-brand-muted text-lg">No articles found.</p>
+    <a href="/latest" class="btn-outline mt-4">Clear filters</a>
+  </div>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts') %>
+</body>
+</html>

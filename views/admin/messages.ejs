@@ -1,0 +1,39 @@
+<%- include('partials/layout') %>
+
+<div class="p-8">
+  <h1 class="font-heading font-bold text-2xl text-brand-text mb-1">Messages</h1>
+  <p class="text-brand-muted text-sm mb-8"><%= list.length %> total contact form submissions</p>
+
+  <div class="space-y-4">
+    <% if (list.length === 0) { %>
+    <div class="bg-brand-card border border-brand-border rounded-xl p-10 text-center text-brand-muted">
+      No messages yet.
+    </div>
+    <% } %>
+    <% list.forEach(m => { %>
+    <div class="bg-brand-card border border-brand-border rounded-xl p-5">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <p class="font-heading font-semibold text-brand-text"><%= m.name %></p>
+          <a href="mailto:<%= m.email %>" class="text-brand-cyan text-xs hover:underline"><%= m.email %></a>
+        </div>
+        <div class="text-right">
+          <span class="text-xs px-2 py-0.5 rounded bg-brand-elevated text-brand-muted"><%= m.reason %></span>
+          <p class="text-xs text-brand-tertiary mt-1"><%= new Date(m.submittedAt).toLocaleString() %></p>
+        </div>
+      </div>
+      <p class="text-brand-muted text-sm leading-relaxed border-t border-brand-border pt-3"><%= m.message %></p>
+      <div class="flex items-center gap-3 mt-3">
+        <a href="mailto:<%= m.email %>" class="text-xs text-brand-cyan hover:underline">Reply via email</a>
+        <form method="POST" action="/admin/messages/<%= m.id %>/delete" onsubmit="return confirm('Delete this message?');">
+          <button type="submit" class="text-xs text-red-400 hover:underline">Delete</button>
+        </form>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

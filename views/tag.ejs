@@ -1,0 +1,31 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+  <div class="mb-10 fade-up">
+    <span class="font-mono text-xs text-brand-cyan uppercase tracking-widest block mb-2">Tag</span>
+    <h1 class="font-heading font-bold text-4xl text-brand-text">#<%= tag %></h1>
+    <p class="text-brand-muted mt-2"><%= total %> article<%= total !== 1 ? 's' : '' %> tagged with "<%= tag %>"</p>
+  </div>
+
+  <% if (list && list.length > 0) { %>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+    <% list.forEach((a, i) => { %>
+    <div class="fade-up" style="animation-delay: <%= Math.min(i, 5) * 60 %>ms">
+      <% let size = 'md'; let showExc = true; %>
+      <%- include('partials/article-card', { article: a, size, showExc }) %>
+    </div>
+    <% }) %>
+  </div>
+  <% } else { %>
+  <div class="text-center py-20">
+    <p class="text-brand-muted text-lg">No articles found for this tag.</p>
+    <a href="/latest" class="btn-outline mt-4">Browse all articles</a>
+  </div>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts') %>
+</body>
+</html>

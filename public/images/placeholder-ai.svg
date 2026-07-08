@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F1A"/>
+      <stop offset="100%" stop-color="#11172A"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2546F0"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g1)"/>
+  <g opacity="0.5" stroke="#1C2236" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+  <circle cx="160" cy="100" r="4" fill="#22D3EE" opacity="0.6"/>
+  <circle cx="640" cy="400" r="4" fill="#22D3EE" opacity="0.6"/>
+  <circle cx="400" cy="250" r="6" fill="#22D3EE"/>
+  <circle cx="400" cy="250" r="60" fill="none" stroke="url(#g2)" stroke-width="2" opacity="0.5"/>
+  <circle cx="400" cy="250" r="100" fill="none" stroke="url(#g2)" stroke-width="1" opacity="0.3"/>
+  <text x="400" y="258" font-family="monospace" font-size="14" fill="#22D3EE" text-anchor="middle" opacity="0.8">AI</text>
+</svg>

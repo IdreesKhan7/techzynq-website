@@ -1,0 +1,20 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main class="max-w-2xl mx-auto px-4 sm:px-6 py-32 text-center">
+  <div class="relative inline-block mb-8">
+    <span class="font-heading font-extrabold text-8xl gradient-text select-none">404</span>
+    <div class="absolute inset-0 bg-brand-gradient opacity-10 blur-3xl rounded-full pointer-events-none"></div>
+  </div>
+  <h1 class="font-heading font-bold text-3xl text-brand-text mb-3">Page not found</h1>
+  <p class="text-brand-muted mb-8">The page you're looking for doesn't exist or has been moved. Maybe the URL changed — try searching for it.</p>
+  <div class="flex items-center justify-center gap-4 flex-wrap">
+    <a href="/" class="btn-primary">Back to Home</a>
+    <button id="search-trigger" class="btn-outline">Search TechZynq</button>
+  </div>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts') %>
+</body>
+</html>

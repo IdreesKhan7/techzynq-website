@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="min-h-screen bg-brand-bg flex items-center justify-center p-4">
+  <div class="w-full max-w-sm">
+    <!-- Logo -->
+    <div class="text-center mb-8">
+      <img src="/images/logo-v.png" alt="TechZynq" class="w-36 mx-auto mb-4" style="mix-blend-mode:screen;" />
+      <h1 class="font-heading font-bold text-xl text-brand-text">Admin Panel</h1>
+      <p class="text-brand-muted text-sm mt-1">Sign in to continue</p>
+    </div>
+
+    <div class="bg-brand-card border border-brand-border rounded-2xl p-8 relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-px bg-brand-gradient-r opacity-30"></div>
+
+      <% if (error) { %>
+      <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-3 mb-5 text-red-400 text-sm"><%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/admin/login" class="space-y-4">
+        <div>
+          <label class="form-label">Email</label>
+          <input type="email" name="email" required autofocus placeholder="admin@techzynq.com" class="form-input" />
+        </div>
+        <div>
+          <label class="form-label">Password</label>
+          <input type="password" name="password" required placeholder="••••••••" class="form-input" />
+        </div>
+        <button type="submit" class="btn-primary w-full justify-center mt-2">Sign In</button>
+      </form>
+    </div>
+    <p class="text-center text-brand-tertiary text-xs mt-6">
+      <a href="/" class="hover:text-brand-muted transition-colors">← Back to site</a>
+    </p>
+  </div>
+</body>
+</html>

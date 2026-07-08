@@ -1,0 +1,21 @@
+<section class="relative py-16 overflow-hidden">
+  <!-- Background glow -->
+  <div class="absolute inset-0 bg-brand-gradient opacity-5 pointer-events-none"></div>
+  <div class="absolute inset-0 circuit-bg opacity-30 pointer-events-none"></div>
+
+  <div class="relative max-w-2xl mx-auto px-4 sm:px-6 text-center">
+    <span class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-3 block">Stay informed</span>
+    <h2 class="font-heading font-bold text-3xl md:text-4xl text-brand-text mb-3">
+      The AI & Tech digest<br/>that respects your time
+    </h2>
+    <p class="text-brand-muted mb-8">One email per week. The most important stories, distilled. No sponsored content, no fluff.</p>
+
+    <form id="band-newsletter" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input type="email" name="email" placeholder="your@email.com" required
+             class="newsletter-input flex-1" />
+      <button type="submit" class="btn-primary flex-shrink-0">Subscribe</button>
+    </form>
+    <p id="band-newsletter-msg" class="text-sm text-brand-cyan mt-3 hidden"></p>
+    <p class="text-xs text-brand-tertiary mt-3">No spam, ever. Unsubscribe any time.</p>
+  </div>
+</section>

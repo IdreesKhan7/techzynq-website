@@ -1,0 +1,70 @@
+<%- include('partials/layout') %>
+
+<div class="p-8">
+  <h1 class="font-heading font-bold text-2xl text-brand-text mb-1">Dashboard</h1>
+  <p class="text-brand-muted text-sm mb-8">Welcome back. Here's what's happening on TechZynq.</p>
+
+  <!-- Stat cards -->
+  <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+    <div class="bg-brand-card border border-brand-border rounded-xl p-5">
+      <p class="text-xs font-mono text-brand-tertiary uppercase tracking-widest mb-2">Total Articles</p>
+      <p class="font-heading font-bold text-3xl text-brand-text"><%= stats.total %></p>
+    </div>
+    <div class="bg-brand-card border border-brand-border rounded-xl p-5">
+      <p class="text-xs font-mono text-brand-tertiary uppercase tracking-widest mb-2">Published</p>
+      <p class="font-heading font-bold text-3xl text-brand-cyan"><%= stats.published %></p>
+    </div>
+    <div class="bg-brand-card border border-brand-border rounded-xl p-5">
+      <p class="text-xs font-mono text-brand-tertiary uppercase tracking-widest mb-2">Drafts</p>
+      <p class="font-heading font-bold text-3xl text-brand-muted"><%= stats.drafts %></p>
+    </div>
+    <div class="bg-brand-card border border-brand-border rounded-xl p-5">
+      <p class="text-xs font-mono text-brand-tertiary uppercase tracking-widest mb-2">Unread Msgs</p>
+      <p class="font-heading font-bold text-3xl text-brand-primary"><%= stats.unread %></p>
+    </div>
+    <div class="bg-brand-card border border-brand-border rounded-xl p-5">
+      <p class="text-xs font-mono text-brand-tertiary uppercase tracking-widest mb-2">Subscribers</p>
+      <p class="font-heading font-bold text-3xl text-brand-text"><%= stats.subs %></p>
+    </div>
+  </div>
+
+  <!-- Quick action -->
+  <div class="mb-8">
+    <a href="/admin/articles/new" class="btn-primary">+ New Article</a>
+  </div>
+
+  <!-- Recent articles -->
+  <h2 class="font-heading font-semibold text-lg text-brand-text mb-4">Recent Articles</h2>
+  <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-brand-border text-left">
+          <th class="px-5 py-3 text-brand-tertiary font-mono text-xs uppercase tracking-widest">Title</th>
+          <th class="px-5 py-3 text-brand-tertiary font-mono text-xs uppercase tracking-widest">Category</th>
+          <th class="px-5 py-3 text-brand-tertiary font-mono text-xs uppercase tracking-widest">Status</th>
+          <th class="px-5 py-3 text-brand-tertiary font-mono text-xs uppercase tracking-widest">Views</th>
+          <th class="px-5 py-3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% recent.forEach(a => { %>
+        <tr class="border-b border-brand-border/50 hover:bg-brand-elevated/50 transition-colors">
+          <td class="px-5 py-3 text-brand-text font-medium max-w-xs truncate"><%= a.title %></td>
+          <td class="px-5 py-3 text-brand-muted"><%= a.category %></td>
+          <td class="px-5 py-3">
+            <span class="text-xs px-2 py-0.5 rounded <%= a.status === 'published' ? 'bg-brand-cyan/10 text-brand-cyan' : 'bg-brand-elevated text-brand-muted' %>"><%= a.status %></span>
+          </td>
+          <td class="px-5 py-3 text-brand-muted"><%= a.views %></td>
+          <td class="px-5 py-3 text-right">
+            <a href="/admin/articles/<%= a.id %>/edit" class="text-brand-cyan hover:underline text-xs">Edit</a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
