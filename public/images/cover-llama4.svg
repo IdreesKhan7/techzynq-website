@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060508"/><stop offset="100%" stop-color="#0C0A14"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2546F0"/><stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F07825"/><stop offset="100%" stop-color="#F0C525"/>
+    </linearGradient>
+    <linearGradient id="flow-h" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2546F0" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0.8"/>
+    </linearGradient>
+    <radialGradient id="lock-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#2546F0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#110F1A" stroke-width="0.5" opacity="0.8">
+    <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/><line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/><line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <!-- ── Open padlock (center-left) ── -->
+  <!-- Glow -->
+  <circle cx="260" cy="240" r="100" fill="url(#lock-glow)" filter="url(#soft)"/>
+
+  <!-- Padlock body -->
+  <rect x="210" y="255" width="100" height="80" rx="10" fill="#0C0F1E" stroke="url(#accent)" stroke-width="2.5"/>
+  <rect x="210" y="255" width="100" height="80" rx="10" fill="url(#lock-glow)"/>
+
+  <!-- Padlock shackle (open — rotated up-right) -->
+  <path d="M230 255 L230 220 Q230 190 260 190 Q290 190 290 220 L290 245" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <!-- Shackle glow -->
+  <path d="M230 255 L230 220 Q230 190 260 190 Q290 190 290 220 L290 245" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" opacity="0.5" filter="url(#glow)"/>
+
+  <!-- Keyhole -->
+  <circle cx="260" cy="286" r="12" fill="#060810"/>
+  <circle cx="260" cy="286" r="12" fill="none" stroke="#22D3EE" stroke-width="1.5"/>
+  <rect x="256" y="288" width="8" height="14" rx="2" fill="#060810" stroke="#22D3EE" stroke-width="1.5"/>
+
+  <!-- "FREE" text on lock body -->
+  <text x="260" y="325" font-family="monospace" font-size="11" fill="#22D3EE" text-anchor="middle" font-weight="bold" letter-spacing="2">FREE</text>
+
+  <!-- ── Code streams flowing out from open lock ── -->
+  <!-- Stream 1 — top right -->
+  <path d="M310 250 Q380 200 470 170" stroke="url(#flow-h)" stroke-width="1.5" fill="none" stroke-dasharray="6 3"/>
+  <!-- Stream 2 — middle right -->
+  <path d="M310 285 L470 285" stroke="url(#flow-h)" stroke-width="1.5" fill="none"/>
+  <!-- Stream 3 — bottom right -->
+  <path d="M310 320 Q380 360 470 380" stroke="url(#flow-h)" stroke-width="1.5" fill="none" stroke-dasharray="6 3"/>
+
+  <!-- Code snippets floating along streams -->
+  <g font-family="monospace" font-size="8.5" fill="#22D3EE" opacity="0.75">
+    <text x="340" y="228">model.generate(</text>
+    <text x="380" y="245">  prompt=query,</text>
+    <text x="380" y="257">  max_tokens=512</text>
+    <text x="340" y="268">)</text>
+  </g>
+  <g font-family="monospace" font-size="8.5" fill="#2546F0" opacity="0.75">
+    <text x="340" y="310">from llama4 import</text>
+    <text x="360" y="322">  Maverick</text>
+    <text x="340" y="334">llm = Maverick()</text>
+  </g>
+  <g font-family="monospace" font-size="8.5" fill="#22D3EE" opacity="0.55">
+    <text x="340" y="365">fine_tune(</text>
+    <text x="360" y="377">  dataset=custom</text>
+    <text x="340" y="389">)</text>
+  </g>
+
+  <!-- ── Community nodes (right side) ── -->
+  <!-- Node: fine-tune -->
+  <circle cx="530" cy="155" r="38" fill="#0C0F1E" stroke="#F07825" stroke-width="1.5"/>
+  <circle cx="530" cy="155" r="38" fill="#F07825" opacity="0.05" filter="url(#soft)"/>
+  <text x="530" y="150" font-family="monospace" font-size="9" fill="#F0C525" text-anchor="middle" font-weight="bold">FINE</text>
+  <text x="530" y="163" font-family="monospace" font-size="9" fill="#F0C525" text-anchor="middle" font-weight="bold">TUNE</text>
+
+  <!-- Node: deploy -->
+  <circle cx="640" cy="255" r="42" fill="#0C0F1E" stroke="url(#accent)" stroke-width="1.5"/>
+  <circle cx="640" cy="255" r="42" fill="#22D3EE" opacity="0.04" filter="url(#soft)"/>
+  <text x="640" y="250" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">SELF</text>
+  <text x="640" y="263" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">HOST</text>
+  <!-- -80% cost badge -->
+  <rect x="618" y="280" width="44" height="16" rx="8" fill="#22D3EE" opacity="0.9"/>
+  <text x="640" y="292" font-family="monospace" font-size="8.5" fill="#060810" text-anchor="middle" font-weight="bold">-80%</text>
+
+  <!-- Node: research -->
+  <circle cx="530" cy="360" r="38" fill="#0C0F1E" stroke="#2546F0" stroke-width="1.5"/>
+  <circle cx="530" cy="360" r="38" fill="#2546F0" opacity="0.05" filter="url(#soft)"/>
+  <text x="530" y="355" font-family="monospace" font-size="9" fill="#2546F0" text-anchor="middle" font-weight="bold">SHARE</text>
+  <text x="530" y="368" font-family="monospace" font-size="9" fill="#2546F0" text-anchor="middle" font-weight="bold">WEIGHTS</text>
+
+  <!-- Connections between nodes -->
+  <line x1="555" y1="185" x2="610" y2="230" stroke="url(#accent)" stroke-width="1" opacity="0.4" stroke-dasharray="4 4"/>
+  <line x1="555" y1="335" x2="610" y2="280" stroke="url(#accent)" stroke-width="1" opacity="0.4" stroke-dasharray="4 4"/>
+
+  <!-- Arrows from lock streams to nodes -->
+  <polygon points="492,153 506,157 492,161" fill="#F07825" opacity="0.8"/>
+  <polygon points="598,252 612,256 598,260" fill="#22D3EE" opacity="0.8"/>
+  <polygon points="492,377 506,381 492,385" fill="#2546F0" opacity="0.8"/>
+
+  <!-- ── Left side: before/after cost comparison ── -->
+  <rect x="32" y="120" width="150" height="130" rx="10" fill="#0A0D18" stroke="#1A2030" stroke-width="1"/>
+  <text x="107" y="140" font-family="monospace" font-size="8.5" fill="#6B7A99" text-anchor="middle" letter-spacing="1">COST SAVINGS</text>
+  <line x1="42" y1="148" x2="172" y2="148" stroke="#1A2030" stroke-width="1"/>
+
+  <text x="52" y="168" font-family="monospace" font-size="8" fill="#6B7A99">OpenAI API</text>
+  <rect x="52" y="174" width="110" height="10" rx="3" fill="#2546F0" opacity="0.6"/>
+  <text x="168" y="183" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="end">$50k/mo</text>
+
+  <text x="52" y="200" font-family="monospace" font-size="8" fill="#6B7A99">Llama 4 self</text>
+  <rect x="52" y="206" width="22" height="10" rx="3" fill="#22D3EE" opacity="0.8"/>
+  <text x="168" y="215" font-family="monospace" font-size="8" fill="#22D3EE" text-anchor="end">$10k/mo</text>
+
+  <text x="107" y="238" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">80% REDUCTION</text>
+
+  <!-- Meta / Llama badge -->
+  <rect x="32" y="380" width="150" height="50" rx="10" fill="#0A0D18" stroke="url(#warm)" stroke-width="1.5"/>
+  <text x="107" y="402" font-family="sans-serif" font-size="12" fill="#F0C525" text-anchor="middle" font-weight="bold">Llama 4</text>
+  <text x="107" y="418" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="middle">Meta AI · Open Weights</text>
+
+  <!-- Floating particles -->
+  <g fill="#22D3EE" opacity="0.2">
+    <circle cx="700" cy="100" r="2"/><circle cx="760" cy="180" r="2"/>
+    <circle cx="730" cy="400" r="2"/><circle cx="770" cy="350" r="2"/>
+    <circle cx="50" cy="440" r="2"/><circle cx="100" cy="80" r="2"/>
+  </g>
+</svg>

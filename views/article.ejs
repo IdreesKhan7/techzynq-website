@@ -7,8 +7,10 @@
 
 <main>
   <%
-  const imgSrc = article.coverImage && !article.coverImage.includes('placeholder')
-    ? article.coverImage + '-lg.webp'
+  const imgSrc = article.coverImage
+    ? (/\.(svg|png|jpg|jpeg|webp|gif)$/i.test(article.coverImage)
+        ? article.coverImage
+        : article.coverImage + '-lg.webp')
     : (article.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg');
   const pubDate = article.publishedAt
     ? new Date(article.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})

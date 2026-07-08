@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060508"/><stop offset="100%" stop-color="#0A0C10"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2546F0"/><stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8722A"/><stop offset="100%" stop-color="#F0A030"/>
+    </linearGradient>
+    <linearGradient id="earth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2A7A4A"/><stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <radialGradient id="globe-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.15"/>
+      <stop offset="70%" stop-color="#2546F0" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#2546F0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="node-glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="africa-clip">
+      <path d="M310 60 L360 55 L390 65 L420 60 L450 75 L465 100 L470 130 L460 170 L470 200 L480 230 L475 260 L460 290 L450 320 L430 350 L410 380 L390 400 L370 415 L355 400 L340 370 L320 340 L305 310 L295 280 L300 250 L290 220 L285 190 L295 160 L300 130 L295 100 L300 80 Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Background globe grid lines -->
+  <g stroke="#131820" stroke-width="0.5" opacity="0.7">
+    <!-- Latitude lines -->
+    <ellipse cx="390" cy="230" rx="200" ry="60" fill="none"/>
+    <ellipse cx="390" cy="230" rx="160" ry="48" fill="none"/>
+    <ellipse cx="390" cy="230" rx="110" ry="33" fill="none"/>
+    <!-- Longitude lines (vertical arcs) -->
+    <path d="M390 50 Q480 230 390 410" fill="none"/>
+    <path d="M390 50 Q300 230 390 410" fill="none"/>
+    <path d="M310 100 Q350 230 310 360" fill="none"/>
+    <path d="M470 100 Q430 230 470 360" fill="none"/>
+    <!-- Horizontal lines -->
+    <line x1="190" y1="230" x2="590" y2="230"/>
+    <line x1="230" y1="150" x2="550" y2="150"/>
+    <line x1="230" y1="310" x2="550" y2="310"/>
+  </g>
+
+  <!-- Globe glow -->
+  <circle cx="390" cy="230" r="185" fill="url(#globe-glow)"/>
+  <circle cx="390" cy="230" r="185" fill="url(#globe-glow)" filter="url(#soft)"/>
+
+  <!-- Globe outline -->
+  <circle cx="390" cy="230" r="185" fill="none" stroke="#1A2240" stroke-width="1.5"/>
+
+  <!-- Africa continent silhouette (simplified path) -->
+  <!-- Main body -->
+  <path d="M350 78 L370 72 L392 74 L415 70 L438 80 L453 100 L460 128 L455 160 L463 188 L472 218 L468 248 L455 278 L443 308 L424 338 L408 362 L392 378 L378 388 L364 374 L348 345 L332 312 L320 282 L316 252 L322 222 L316 192 L318 162 L326 132 L322 102 Z"
+        fill="#0F1C14" stroke="#2A7A4A" stroke-width="1.5" opacity="0.9"/>
+
+  <!-- Country borders (subtle) -->
+  <g stroke="#1A3020" stroke-width="0.8" fill="none" opacity="0.7">
+    <line x1="370" y1="170" x2="430" y2="165"/>
+    <line x1="340" y1="220" x2="390" y2="210"/>
+    <line x1="390" y1="210" x2="450" y2="220"/>
+    <line x1="380" y1="260" x2="440" y2="255"/>
+    <line x1="360" y1="300" x2="410" y2="295"/>
+  </g>
+
+  <!-- Data / Language nodes ON Africa -->
+  <!-- Node: Lagos / West Africa -->
+  <circle cx="345" cy="215" r="8" fill="#E8722A" opacity="0.9" filter="url(#node-glow)"/>
+  <circle cx="345" cy="215" r="14" fill="#E8722A" opacity="0.15"/>
+
+  <!-- Node: Nairobi / East Africa -->
+  <circle cx="430" cy="235" r="7" fill="#22D3EE" opacity="0.9" filter="url(#node-glow)"/>
+  <circle cx="430" cy="235" r="12" fill="#22D3EE" opacity="0.15"/>
+
+  <!-- Node: Cairo / North Africa -->
+  <circle cx="400" cy="125" r="7" fill="#F0A030" opacity="0.9" filter="url(#node-glow)"/>
+  <circle cx="400" cy="125" r="12" fill="#F0A030" opacity="0.15"/>
+
+  <!-- Node: Accra / Ghana -->
+  <circle cx="355" cy="248" r="6" fill="#22D3EE" opacity="0.8"/>
+  <circle cx="355" cy="248" r="10" fill="#22D3EE" opacity="0.12"/>
+
+  <!-- Node: Addis Ababa / Ethiopia -->
+  <circle cx="435" cy="208" r="6" fill="#E8722A" opacity="0.8"/>
+  <circle cx="435" cy="208" r="10" fill="#E8722A" opacity="0.12"/>
+
+  <!-- Node: Cape Town / South Africa -->
+  <circle cx="382" cy="358" r="7" fill="#2546F0" opacity="0.9" filter="url(#node-glow)"/>
+  <circle cx="382" cy="358" r="12" fill="#2546F0" opacity="0.15"/>
+
+  <!-- Node: Dakar / Senegal -->
+  <circle cx="328" cy="185" r="5" fill="#F0A030" opacity="0.8"/>
+
+  <!-- Node: Johannesburg -->
+  <circle cx="393" cy="338" r="5" fill="#22D3EE" opacity="0.7"/>
+
+  <!-- Intra-Africa connections -->
+  <g stroke="#22D3EE" stroke-width="1" opacity="0.25" stroke-dasharray="4 3">
+    <line x1="345" y1="215" x2="430" y2="235"/>
+    <line x1="400" y1="125" x2="430" y2="208"/>
+    <line x1="430" y1="208" x2="430" y2="235"/>
+    <line x1="345" y1="215" x2="355" y2="248"/>
+    <line x1="355" y1="248" x2="382" y2="358"/>
+    <line x1="382" y1="358" x2="393" y2="338"/>
+    <line x1="328" y1="185" x2="345" y2="215"/>
+    <line x1="400" y1="125" x2="345" y2="215"/>
+  </g>
+
+  <!-- ── Language labels floating out from nodes ── -->
+  <!-- Yoruba -->
+  <line x1="345" y1="215" x2="200" y2="180" stroke="#E8722A" stroke-width="1" opacity="0.4"/>
+  <rect x="100" y="163" width="95" height="30" rx="6" fill="#110C06" stroke="#E8722A" stroke-width="1"/>
+  <text x="147" y="176" font-family="monospace" font-size="9" fill="#E8722A" text-anchor="middle" font-weight="bold">Yoruba</text>
+  <text x="147" y="187" font-family="monospace" font-size="7" fill="#6B7A99" text-anchor="middle">40M speakers</text>
+
+  <!-- Swahili -->
+  <line x1="430" y1="235" x2="580" y2="200" stroke="#22D3EE" stroke-width="1" opacity="0.4"/>
+  <rect x="581" y="183" width="95" height="30" rx="6" fill="#06100C" stroke="#22D3EE" stroke-width="1"/>
+  <text x="628" y="196" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">Swahili</text>
+  <text x="628" y="207" font-family="monospace" font-size="7" fill="#6B7A99" text-anchor="middle">200M speakers</text>
+
+  <!-- Amharic -->
+  <line x1="435" y1="208" x2="590" y2="155" stroke="#F0A030" stroke-width="1" opacity="0.4"/>
+  <rect x="591" y="138" width="95" height="30" rx="6" fill="#100B06" stroke="#F0A030" stroke-width="1"/>
+  <text x="638" y="151" font-family="monospace" font-size="9" fill="#F0A030" text-anchor="middle" font-weight="bold">Amharic</text>
+  <text x="638" y="162" font-family="monospace" font-size="7" fill="#6B7A99" text-anchor="middle">57M speakers</text>
+
+  <!-- Zulu -->
+  <line x1="382" y1="358" x2="200" y2="370" stroke="#2546F0" stroke-width="1" opacity="0.4"/>
+  <rect x="100" y="353" width="95" height="30" rx="6" fill="#060810" stroke="#2546F0" stroke-width="1"/>
+  <text x="147" y="366" font-family="monospace" font-size="9" fill="#2546F0" text-anchor="middle" font-weight="bold">Zulu</text>
+  <text x="147" y="377" font-family="monospace" font-size="7" fill="#6B7A99" text-anchor="middle">12M speakers</text>
+
+  <!-- Hausa -->
+  <line x1="328" y1="185" x2="160" y2="130" stroke="#F0A030" stroke-width="1" opacity="0.4"/>
+  <rect x="60" y="113" width="95" height="30" rx="6" fill="#100B06" stroke="#F0A030" stroke-width="1"/>
+  <text x="107" y="126" font-family="monospace" font-size="9" fill="#F0A030" text-anchor="middle" font-weight="bold">Hausa</text>
+  <text x="107" y="137" font-family="monospace" font-size="7" fill="#6B7A99" text-anchor="middle">70M speakers</text>
+
+  <!-- Zulu south -->
+  <line x1="430" y1="235" x2="590" y2="290" stroke="#22D3EE" stroke-width="1" opacity="0.35"/>
+  <rect x="591" y="273" width="95" height="30" rx="6" fill="#06100C" stroke="#22D3EE" stroke-width="1"/>
+  <text x="638" y="286" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">Igbo</text>
+  <text x="638" y="297" font-family="monospace" font-size="7" fill="#6B7A99" text-anchor="middle">45M speakers</text>
+
+  <!-- Masakhane badge -->
+  <rect x="580" y="370" width="185" height="70" rx="10" fill="#0A0C14" stroke="url(#warm)" stroke-width="1.5"/>
+  <text x="672" y="393" font-family="sans-serif" font-size="12" fill="#E8722A" text-anchor="middle" font-weight="bold">Masakhane</text>
+  <text x="672" y="408" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="middle">800+ researchers · 30 countries</text>
+  <text x="672" y="421" font-family="monospace" font-size="8" fill="#22D3EE" text-anchor="middle">60+ African languages</text>
+  <line x1="596" y1="430" x2="750" y2="430" stroke="url(#warm)" stroke-width="0.5" opacity="0.4"/>
+  <text x="672" y="432" font-family="monospace" font-size="7.5" fill="#6B7A99" text-anchor="middle"/>
+
+  <!-- $12M funding badge -->
+  <rect x="32" y="420" width="155" height="50" rx="10" fill="#0A0C14" stroke="url(#accent)" stroke-width="1.5"/>
+  <text x="109" y="442" font-family="sans-serif" font-size="13" fill="#22D3EE" text-anchor="middle" font-weight="bold">$12M Funded</text>
+  <text x="109" y="458" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="middle">Gates Foundation · AfDB</text>
+
+  <!-- Floating particles -->
+  <g fill="#22D3EE" opacity="0.2">
+    <circle cx="700" cy="70" r="2"/><circle cx="760" cy="440" r="2"/>
+    <circle cx="50" cy="300" r="2"/><circle cx="80" cy="460" r="2"/>
+  </g>
+
+  <!-- Data streams (outer globe) -->
+  <g stroke="#22D3EE" stroke-width="0.8" opacity="0.1">
+    <path d="M575 80 Q620 100 640 150" fill="none"/>
+    <path d="M200 380 Q160 400 140 440" fill="none"/>
+  </g>
+</svg>

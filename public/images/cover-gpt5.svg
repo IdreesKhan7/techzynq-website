@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050810"/>
+      <stop offset="50%" stop-color="#080D1A"/>
+      <stop offset="100%" stop-color="#0A1020"/>
+    </linearGradient>
+    <linearGradient id="glow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2546F0"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <radialGradient id="core-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#2546F0" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#2546F0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#2546F0" stop-opacity="0.3"/>
+    </radialGradient>
+    <filter id="blur-sm"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="blur-md"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="blur-lg"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#1A2240" stroke-width="0.5" opacity="0.5">
+    <line x1="0" y1="83" x2="800" y2="83"/><line x1="0" y1="166" x2="800" y2="166"/>
+    <line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="333" x2="800" y2="333"/>
+    <line x1="0" y1="416" x2="800" y2="416"/>
+    <line x1="133" y1="0" x2="133" y2="500"/><line x1="266" y1="0" x2="266" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/><line x1="533" y1="0" x2="533" y2="500"/>
+    <line x1="666" y1="0" x2="666" y2="500"/>
+  </g>
+
+  <!-- Core glow -->
+  <circle cx="400" cy="250" r="130" fill="url(#core-glow)"/>
+  <circle cx="400" cy="250" r="130" fill="url(#core-glow)" filter="url(#blur-lg)"/>
+
+  <!-- Outer orbit rings -->
+  <circle cx="400" cy="250" r="170" fill="none" stroke="url(#glow-grad)" stroke-width="1" stroke-dasharray="6 4" opacity="0.25"/>
+  <circle cx="400" cy="250" r="210" fill="none" stroke="#22D3EE" stroke-width="0.5" stroke-dasharray="3 8" opacity="0.15"/>
+
+  <!-- Neural connection lines — outer layer -->
+  <g stroke="#22D3EE" stroke-width="0.8" opacity="0.18">
+    <line x1="400" y1="250" x2="100" y2="80"/><line x1="400" y1="250" x2="200" y2="50"/>
+    <line x1="400" y1="250" x2="600" y2="50"/><line x1="400" y1="250" x2="700" y2="80"/>
+    <line x1="400" y1="250" x2="720" y2="220"/><line x1="400" y1="250" x2="700" y2="420"/>
+    <line x1="400" y1="250" x2="600" y2="460"/><line x1="400" y1="250" x2="200" y2="460"/>
+    <line x1="400" y1="250" x2="80" y2="400"/><line x1="400" y1="250" x2="70" y2="220"/>
+  </g>
+
+  <!-- Mid-layer connection lines -->
+  <g stroke="#2546F0" stroke-width="0.8" opacity="0.3">
+    <line x1="400" y1="250" x2="260" y2="120"/><line x1="400" y1="250" x2="320" y2="100"/>
+    <line x1="400" y1="250" x2="480" y2="100"/><line x1="400" y1="250" x2="540" y2="130"/>
+    <line x1="400" y1="250" x2="580" y2="200"/><line x1="400" y1="250" x2="570" y2="340"/>
+    <line x1="400" y1="250" x2="490" y2="390"/><line x1="400" y1="250" x2="310" y2="390"/>
+    <line x1="400" y1="250" x2="220" y2="350"/><line x1="400" y1="250" x2="210" y2="200"/>
+  </g>
+
+  <!-- Cross-connections between outer nodes -->
+  <g stroke="#22D3EE" stroke-width="0.5" opacity="0.12">
+    <line x1="100" y1="80" x2="200" y2="50"/><line x1="200" y1="50" x2="600" y2="50"/>
+    <line x1="600" y1="50" x2="700" y2="80"/><line x1="260" y1="120" x2="320" y2="100"/>
+    <line x1="480" y1="100" x2="540" y2="130"/><line x1="210" y1="200" x2="260" y2="120"/>
+    <line x1="580" y1="200" x2="540" y2="130"/><line x1="220" y1="350" x2="310" y2="390"/>
+    <line x1="490" y1="390" x2="570" y2="340"/><line x1="80" y1="400" x2="200" y2="460"/>
+    <line x1="600" y1="460" x2="700" y2="420"/>
+  </g>
+
+  <!-- Outer nodes (small) -->
+  <g fill="#22D3EE">
+    <circle cx="100" cy="80" r="3" opacity="0.5"/>
+    <circle cx="200" cy="50" r="2.5" opacity="0.5"/>
+    <circle cx="600" cy="50" r="2.5" opacity="0.5"/>
+    <circle cx="700" cy="80" r="3" opacity="0.5"/>
+    <circle cx="720" cy="220" r="3" opacity="0.5"/>
+    <circle cx="700" cy="420" r="2.5" opacity="0.5"/>
+    <circle cx="600" cy="460" r="3" opacity="0.5"/>
+    <circle cx="200" cy="460" r="2.5" opacity="0.5"/>
+    <circle cx="80" cy="400" r="3" opacity="0.5"/>
+    <circle cx="70" cy="220" r="3" opacity="0.5"/>
+  </g>
+
+  <!-- Mid-layer nodes -->
+  <g>
+    <circle cx="260" cy="120" r="5" fill="#2546F0" opacity="0.7"/>
+    <circle cx="260" cy="120" r="5" fill="#22D3EE" opacity="0.4" filter="url(#blur-sm)"/>
+    <circle cx="320" cy="100" r="4" fill="#22D3EE" opacity="0.6"/>
+    <circle cx="480" cy="100" r="4" fill="#22D3EE" opacity="0.6"/>
+    <circle cx="540" cy="130" r="5" fill="#2546F0" opacity="0.7"/>
+    <circle cx="540" cy="130" r="5" fill="#22D3EE" opacity="0.4" filter="url(#blur-sm)"/>
+    <circle cx="580" cy="200" r="6" fill="#22D3EE" opacity="0.8"/>
+    <circle cx="580" cy="200" r="8" fill="#22D3EE" opacity="0.3" filter="url(#blur-sm)"/>
+    <circle cx="570" cy="340" r="5" fill="#2546F0" opacity="0.7"/>
+    <circle cx="490" cy="390" r="4" fill="#22D3EE" opacity="0.6"/>
+    <circle cx="310" cy="390" r="4" fill="#22D3EE" opacity="0.6"/>
+    <circle cx="220" cy="350" r="5" fill="#2546F0" opacity="0.7"/>
+    <circle cx="210" cy="200" r="6" fill="#22D3EE" opacity="0.8"/>
+    <circle cx="210" cy="200" r="8" fill="#22D3EE" opacity="0.3" filter="url(#blur-sm)"/>
+  </g>
+
+  <!-- Inner bright nodes forming a hexagon -->
+  <g>
+    <circle cx="400" cy="155" r="7" fill="url(#node-glow)"/>
+    <circle cx="400" cy="155" r="12" fill="#22D3EE" opacity="0.2" filter="url(#blur-sm)"/>
+    <circle cx="476" cy="197" r="7" fill="url(#node-glow)"/>
+    <circle cx="476" cy="197" r="12" fill="#22D3EE" opacity="0.2" filter="url(#blur-sm)"/>
+    <circle cx="476" cy="303" r="7" fill="url(#node-glow)"/>
+    <circle cx="476" cy="303" r="12" fill="#22D3EE" opacity="0.2" filter="url(#blur-sm)"/>
+    <circle cx="400" cy="345" r="7" fill="url(#node-glow)"/>
+    <circle cx="400" cy="345" r="12" fill="#22D3EE" opacity="0.2" filter="url(#blur-sm)"/>
+    <circle cx="324" cy="303" r="7" fill="url(#node-glow)"/>
+    <circle cx="324" cy="303" r="12" fill="#22D3EE" opacity="0.2" filter="url(#blur-sm)"/>
+    <circle cx="324" cy="197" r="7" fill="url(#node-glow)"/>
+    <circle cx="324" cy="197" r="12" fill="#22D3EE" opacity="0.2" filter="url(#blur-sm)"/>
+  </g>
+
+  <!-- Inner hexagon connections -->
+  <g stroke="#22D3EE" stroke-width="1.5" opacity="0.5">
+    <line x1="400" y1="155" x2="476" y2="197"/>
+    <line x1="476" y1="197" x2="476" y2="303"/>
+    <line x1="476" y1="303" x2="400" y2="345"/>
+    <line x1="400" y1="345" x2="324" y2="303"/>
+    <line x1="324" y1="303" x2="324" y2="197"/>
+    <line x1="324" y1="197" x2="400" y2="155"/>
+  </g>
+
+  <!-- Core node -->
+  <circle cx="400" cy="250" r="28" fill="url(#glow-grad)" opacity="0.9"/>
+  <circle cx="400" cy="250" r="28" fill="url(#glow-grad)" filter="url(#blur-md)" opacity="0.6"/>
+  <circle cx="400" cy="250" r="18" fill="#E4E8F1" opacity="0.9"/>
+
+  <!-- GPT-5 label on core -->
+  <text x="400" y="245" font-family="monospace" font-size="8" fill="#05070D" text-anchor="middle" font-weight="bold">GPT</text>
+  <text x="400" y="257" font-family="monospace" font-size="8" fill="#05070D" text-anchor="middle" font-weight="bold">-5</text>
+
+  <!-- "Reasoning chains" flowing out -->
+  <g stroke="#22D3EE" stroke-width="1" opacity="0.6" stroke-dasharray="3 3">
+    <line x1="428" y1="250" x2="560" y2="150"/>
+    <line x1="428" y1="250" x2="580" y2="280"/>
+    <line x1="428" y1="250" x2="520" y2="380"/>
+  </g>
+  <!-- Chain step dots -->
+  <g fill="#22D3EE">
+    <circle cx="480" cy="212" r="3.5" opacity="0.7"/>
+    <circle cx="520" cy="185" r="3.5" opacity="0.7"/>
+    <circle cx="560" cy="150" r="5" opacity="0.9"/>
+    <circle cx="503" cy="260" r="3.5" opacity="0.7"/>
+    <circle cx="540" cy="268" r="3.5" opacity="0.7"/>
+    <circle cx="580" cy="280" r="5" opacity="0.9"/>
+    <circle cx="468" cy="308" r="3.5" opacity="0.7"/>
+    <circle cx="494" cy="345" r="3.5" opacity="0.7"/>
+    <circle cx="520" cy="380" r="5" opacity="0.9"/>
+  </g>
+  <!-- Chain endpoint glows -->
+  <circle cx="560" cy="150" r="9" fill="#22D3EE" opacity="0.25" filter="url(#blur-sm)"/>
+  <circle cx="580" cy="280" r="9" fill="#22D3EE" opacity="0.25" filter="url(#blur-sm)"/>
+  <circle cx="520" cy="380" r="9" fill="#22D3EE" opacity="0.25" filter="url(#blur-sm)"/>
+
+  <!-- Decorative floating particles -->
+  <g fill="#22D3EE" opacity="0.3">
+    <circle cx="150" cy="180" r="1.5"/><circle cx="630" cy="130" r="1.5"/>
+    <circle cx="680" cy="350" r="1.5"/><circle cx="120" cy="350" r="1.5"/>
+    <circle cx="340" cy="470" r="1.5"/><circle cx="460" cy="30" r="1.5"/>
+  </g>
+
+  <!-- Category label -->
+  <rect x="32" y="440" width="56" height="22" rx="4" fill="#2546F0" opacity="0.9"/>
+  <text x="60" y="455" font-family="monospace" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">AI</text>
+</svg>

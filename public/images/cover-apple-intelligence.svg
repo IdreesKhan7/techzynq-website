@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#090D1E"/>
+    </linearGradient>
+    <linearGradient id="chip-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C2848"/>
+      <stop offset="100%" stop-color="#111830"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2546F0"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <radialGradient id="chip-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2546F0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="shield-glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="softglow"><feGaussianBlur stdDeviation="8"/></filter>
+    <clipPath id="phone-clip">
+      <rect x="310" y="60" width="180" height="320" rx="22"/>
+    </clipPath>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Background subtle grid -->
+  <g stroke="#131A2E" stroke-width="0.5" opacity="0.7">
+    <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="500"/><line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/><line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/><line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="700" y1="0" x2="700" y2="500"/>
+  </g>
+
+  <!-- Data stream lines left -->
+  <g stroke="url(#accent)" stroke-width="1" opacity="0.15">
+    <line x1="60" y1="140" x2="310" y2="200"/><line x1="60" y1="200" x2="310" y2="230"/>
+    <line x1="60" y1="260" x2="310" y2="270"/><line x1="60" y1="320" x2="310" y2="300"/>
+    <line x1="100" y1="100" x2="310" y2="180"/>
+  </g>
+  <!-- Data stream dots left -->
+  <g fill="#22D3EE" opacity="0.4">
+    <circle cx="120" cy="148" r="2"/><circle cx="170" cy="163" r="2"/><circle cx="230" cy="179" r="2"/>
+    <circle cx="100" cy="204" r="2"/><circle cx="160" cy="216" r="2"/><circle cx="220" cy="227" r="2"/>
+    <circle cx="80" cy="263" r="2"/><circle cx="150" cy="266" r="2"/><circle cx="240" cy="268" r="2"/>
+  </g>
+
+  <!-- Data stream lines right -->
+  <g stroke="url(#accent)" stroke-width="1" opacity="0.15">
+    <line x1="490" y1="180" x2="740" y2="140"/><line x1="490" y1="220" x2="740" y2="200"/>
+    <line x1="490" y1="260" x2="740" y2="260"/><line x1="490" y1="305" x2="740" y2="320"/>
+  </g>
+  <g fill="#22D3EE" opacity="0.4">
+    <circle cx="560" cy="170" r="2"/><circle cx="630" cy="160" r="2"/><circle cx="700" cy="151" r="2"/>
+    <circle cx="540" cy="222" r="2"/><circle cx="610" cy="220" r="2"/><circle cx="680" cy="218" r="2"/>
+  </g>
+
+  <!-- Phone body shadow/glow -->
+  <rect x="310" y="60" width="180" height="320" rx="22" fill="#22D3EE" opacity="0.04" filter="url(#softglow)"/>
+
+  <!-- Phone body -->
+  <rect x="310" y="60" width="180" height="320" rx="22" fill="url(#chip-grad)" stroke="#2A3660" stroke-width="1.5"/>
+
+  <!-- Phone screen -->
+  <rect x="320" y="75" width="160" height="280" rx="14" fill="#080C18" stroke="#1C2848" stroke-width="1"/>
+
+  <!-- Screen content: chip visualization -->
+  <g clip-path="url(#phone-clip)">
+    <!-- Chip glow on screen -->
+    <circle cx="400" cy="215" r="80" fill="url(#chip-glow)"/>
+
+    <!-- Secure Enclave chip -->
+    <rect x="360" y="175" width="80" height="80" rx="8" fill="#111830" stroke="url(#accent)" stroke-width="1.5"/>
+    <!-- Chip internal grid -->
+    <g stroke="#1E2D50" stroke-width="0.5">
+      <line x1="375" y1="175" x2="375" y2="255"/><line x1="393" y1="175" x2="393" y2="255"/>
+      <line x1="407" y1="175" x2="407" y2="255"/><line x1="425" y1="175" x2="425" y2="255"/>
+      <line x1="360" y1="195" x2="440" y2="195"/><line x1="360" y1="215" x2="440" y2="215"/>
+      <line x1="360" y1="235" x2="440" y2="235"/>
+    </g>
+    <!-- Chip pins -->
+    <g stroke="#22D3EE" stroke-width="1.5" opacity="0.5">
+      <line x1="362" y1="190" x2="350" y2="190"/><line x1="362" y1="205" x2="350" y2="205"/>
+      <line x1="362" y1="220" x2="350" y2="220"/><line x1="362" y1="235" x2="350" y2="235"/>
+      <line x1="438" y1="190" x2="450" y2="190"/><line x1="438" y1="205" x2="450" y2="205"/>
+      <line x1="438" y1="220" x2="450" y2="220"/><line x1="438" y1="235" x2="450" y2="235"/>
+      <line x1="375" y1="177" x2="375" y2="165"/><line x1="393" y1="177" x2="393" y2="165"/>
+      <line x1="407" y1="177" x2="407" y2="165"/><line x1="425" y1="177" x2="425" y2="165"/>
+      <line x1="375" y1="253" x2="375" y2="265"/><line x1="393" y1="253" x2="393" y2="265"/>
+      <line x1="407" y1="253" x2="407" y2="265"/><line x1="425" y1="253" x2="425" y2="265"/>
+    </g>
+    <!-- Chip center label -->
+    <text x="400" y="210" font-family="monospace" font-size="8" fill="#22D3EE" text-anchor="middle" opacity="0.9">SECURE</text>
+    <text x="400" y="222" font-family="monospace" font-size="8" fill="#22D3EE" text-anchor="middle" opacity="0.9">ENCLAVE</text>
+
+    <!-- Shield icon above chip -->
+    <path d="M400 110 L418 118 L418 134 Q418 148 400 156 Q382 148 382 134 L382 118 Z" fill="none" stroke="url(#accent)" stroke-width="2"/>
+    <path d="M400 110 L418 118 L418 134 Q418 148 400 156 Q382 148 382 134 L382 118 Z" fill="url(#shield-glow)" opacity="0.3"/>
+    <!-- Lock icon in shield -->
+    <rect x="394" y="127" width="12" height="10" rx="2" fill="none" stroke="#22D3EE" stroke-width="1.5"/>
+    <path d="M396 127 L396 123 Q396 119 400 119 Q404 119 404 123 L404 127" fill="none" stroke="#22D3EE" stroke-width="1.5"/>
+    <circle cx="400" cy="132" r="1.5" fill="#22D3EE"/>
+
+    <!-- Memory label at bottom of screen -->
+    <text x="400" y="310" font-family="monospace" font-size="7" fill="#22D3EE" text-anchor="middle" opacity="0.7">ON-DEVICE AI MEMORY</text>
+    <rect x="330" y="317" width="140" height="1" rx="0.5" fill="url(#accent)" opacity="0.4"/>
+  </g>
+
+  <!-- Phone notch -->
+  <rect x="370" y="75" width="60" height="18" rx="9" fill="#060810"/>
+
+  <!-- Phone side buttons -->
+  <rect x="307" y="140" width="3" height="30" rx="1.5" fill="#2A3660"/>
+  <rect x="307" y="180" width="3" height="50" rx="1.5" fill="#2A3660"/>
+  <rect x="490" y="160" width="3" height="40" rx="1.5" fill="#2A3660"/>
+
+  <!-- Privacy lock floating badges -->
+  <g opacity="0.85">
+    <!-- Left badge -->
+    <rect x="120" y="220" width="110" height="36" rx="8" fill="#0D1428" stroke="#22D3EE" stroke-width="1" opacity="0.9"/>
+    <circle cx="142" cy="238" r="8" fill="#22D3EE" opacity="0.2"/>
+    <path d="M142 232 L148 235 L148 241 Q148 245 142 247 Q136 245 136 241 L136 235 Z" fill="none" stroke="#22D3EE" stroke-width="1.2"/>
+    <text x="158" y="235" font-family="sans-serif" font-size="9" fill="#E4E8F1" font-weight="bold">Private</text>
+    <text x="158" y="247" font-family="monospace" font-size="7.5" fill="#22D3EE">On-device only</text>
+
+    <!-- Right badge -->
+    <rect x="570" y="190" width="130" height="36" rx="8" fill="#0D1428" stroke="#2546F0" stroke-width="1" opacity="0.9"/>
+    <circle cx="592" cy="208" r="8" fill="#2546F0" opacity="0.2"/>
+    <text x="592" y="204" font-family="monospace" font-size="9" fill="#2546F0" text-anchor="middle">✦</text>
+    <text x="592" y="216" font-family="monospace" font-size="7" fill="#2546F0" text-anchor="middle">AI</text>
+    <text x="614" y="205" font-family="sans-serif" font-size="9" fill="#E4E8F1" font-weight="bold">Intelligence</text>
+    <text x="614" y="217" font-family="monospace" font-size="7.5" fill="#8892A4">Memory Layer</text>
+  </g>
+
+  <!-- Bottom decorative line -->
+  <rect x="0" y="496" width="800" height="4" fill="url(#accent)" opacity="0.5"/>
+</svg>

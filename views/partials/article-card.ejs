@@ -2,8 +2,10 @@
 /* Expects: article object, optional: size ('sm'|'md'|'lg'), showExcerpt */
 const cardSize   = typeof size !== 'undefined' ? size : 'md';
 const showExcerpt = typeof showExc !== 'undefined' ? showExc : (cardSize !== 'sm');
-const imgPath    = article.coverImage && !article.coverImage.includes('placeholder')
-                   ? article.coverImage + '-md.webp'
+const imgPath    = article.coverImage
+                   ? (/\.(svg|png|jpg|jpeg|webp|gif)$/i.test(article.coverImage)
+                       ? article.coverImage
+                       : article.coverImage + '-md.webp')
                    : (article.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg');
 const pubDate    = article.publishedAt ? new Date(article.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '';
 %>

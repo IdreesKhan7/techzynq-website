@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050810"/><stop offset="100%" stop-color="#080D1A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2546F0"/><stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2546F0" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g stroke="#111828" stroke-width="0.5" opacity="0.6">
+    <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/><line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/><line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <!-- ── STAGE 1: Document store ── -->
+  <text x="85" y="68" font-family="monospace" font-size="9" fill="#6B7A99" text-anchor="middle" letter-spacing="1">KNOWLEDGE BASE</text>
+
+  <!-- Doc 1 -->
+  <rect x="30" y="80" width="55" height="68" rx="5" fill="#0C1220" stroke="#2546F0" stroke-width="1.2"/>
+  <line x1="40" y1="100" x2="75" y2="100" stroke="#1E2D50" stroke-width="1"/>
+  <line x1="40" y1="110" x2="75" y2="110" stroke="#1E2D50" stroke-width="1"/>
+  <line x1="40" y1="120" x2="65" y2="120" stroke="#1E2D50" stroke-width="1"/>
+  <line x1="40" y1="130" x2="75" y2="130" stroke="#1E2D50" stroke-width="1"/>
+  <text x="57" y="96" font-family="monospace" font-size="7" fill="#2546F0" text-anchor="middle">DOC</text>
+  <rect x="42" y="138" width="30" height="4" rx="2" fill="#2546F0" opacity="0.4"/>
+
+  <!-- Doc 2 -->
+  <rect x="95" y="80" width="55" height="68" rx="5" fill="#0C1220" stroke="#22D3EE" stroke-width="1.2"/>
+  <line x1="105" y1="100" x2="140" y2="100" stroke="#1E2D50" stroke-width="1"/>
+  <line x1="105" y1="110" x2="140" y2="110" stroke="#1E2D50" stroke-width="1"/>
+  <line x1="105" y1="120" x2="130" y2="120" stroke="#1E2D50" stroke-width="1"/>
+  <line x1="105" y1="130" x2="140" y2="130" stroke="#1E2D50" stroke-width="1"/>
+  <text x="122" y="96" font-family="monospace" font-size="7" fill="#22D3EE" text-anchor="middle">DOC</text>
+  <rect x="107" y="138" width="30" height="4" rx="2" fill="#22D3EE" opacity="0.4"/>
+
+  <!-- Doc 3 (offset/stacked look) -->
+  <rect x="32" y="165" width="55" height="68" rx="5" fill="#0C1220" stroke="#2546F0" stroke-width="1" opacity="0.7"/>
+  <rect x="97" y="165" width="55" height="68" rx="5" fill="#0C1220" stroke="#22D3EE" stroke-width="1" opacity="0.7"/>
+  <text x="57" y="203" font-family="monospace" font-size="7" fill="#2546F0" text-anchor="middle" opacity="0.7">DOC</text>
+  <text x="122" y="203" font-family="monospace" font-size="7" fill="#22D3EE" text-anchor="middle" opacity="0.7">DOC</text>
+
+  <!-- Chunk arrows down -->
+  <path d="M85 248 L85 278" stroke="url(#accent)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+  <polygon points="81,278 85,290 89,278" fill="#22D3EE" opacity="0.7"/>
+
+  <!-- ── STAGE 2: Chunk + Embed ── -->
+  <text x="85" y="308" font-family="monospace" font-size="9" fill="#6B7A99" text-anchor="middle" letter-spacing="1">CHUNK + EMBED</text>
+
+  <!-- Vector dots (embedding space) -->
+  <g>
+    <circle cx="40" cy="350" r="5" fill="#2546F0" opacity="0.8"/><circle cx="40" cy="350" r="9" fill="#2546F0" opacity="0.15" filter="url(#glow)"/>
+    <circle cx="65" cy="370" r="4" fill="#22D3EE" opacity="0.7"/>
+    <circle cx="90" cy="345" r="6" fill="#22D3EE" opacity="0.9"/><circle cx="90" cy="345" r="10" fill="#22D3EE" opacity="0.15" filter="url(#glow)"/>
+    <circle cx="115" cy="375" r="4" fill="#2546F0" opacity="0.7"/>
+    <circle cx="130" cy="355" r="5" fill="#22D3EE" opacity="0.8"/>
+    <circle cx="55" cy="390" r="3.5" fill="#2546F0" opacity="0.6"/>
+    <circle cx="105" cy="400" r="3.5" fill="#22D3EE" opacity="0.6"/>
+  </g>
+  <text x="85" y="430" font-family="monospace" font-size="8" fill="#2546F0" text-anchor="middle" opacity="0.7">vector space</text>
+
+  <!-- ── FLOW ARROW: docs → retriever ── -->
+  <path d="M155 250 L200 250" stroke="url(#flow)" stroke-width="2" fill="none"/>
+  <polygon points="200,246 214,250 200,254" fill="#22D3EE"/>
+
+  <!-- ── STAGE 3: Hybrid Retriever ── -->
+  <rect x="215" y="185" width="130" height="130" rx="12" fill="#0A1020" stroke="url(#accent)" stroke-width="2"/>
+  <rect x="215" y="185" width="130" height="130" rx="12" fill="#22D3EE" opacity="0.03" filter="url(#soft)"/>
+
+  <text x="280" y="218" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">HYBRID</text>
+  <text x="280" y="230" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">RETRIEVER</text>
+
+  <!-- BM25 -->
+  <rect x="228" y="240" width="48" height="28" rx="5" fill="#111830" stroke="#2546F0" stroke-width="1"/>
+  <text x="252" y="252" font-family="monospace" font-size="7.5" fill="#2546F0" text-anchor="middle" font-weight="bold">BM25</text>
+  <text x="252" y="263" font-family="monospace" font-size="6.5" fill="#6B7A99" text-anchor="middle">keyword</text>
+
+  <!-- Dense -->
+  <rect x="284" y="240" width="48" height="28" rx="5" fill="#111830" stroke="#22D3EE" stroke-width="1"/>
+  <text x="308" y="252" font-family="monospace" font-size="7.5" fill="#22D3EE" text-anchor="middle" font-weight="bold">Dense</text>
+  <text x="308" y="263" font-family="monospace" font-size="6.5" fill="#6B7A99" text-anchor="middle">semantic</text>
+
+  <text x="280" y="300" font-family="monospace" font-size="7" fill="#6B7A99" text-anchor="middle">top-k chunks</text>
+
+  <!-- ── Query arrow ── -->
+  <path d="M280 185 L280 140" stroke="url(#flow)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+  <polygon points="276,140 280,128 284,140" fill="#22D3EE" opacity="0.8"/>
+  <rect x="232" y="90" width="96" height="32" rx="6" fill="#0C1220" stroke="#22D3EE" stroke-width="1"/>
+  <text x="280" y="102" font-family="monospace" font-size="7.5" fill="#22D3EE" text-anchor="middle">USER QUERY</text>
+  <text x="280" y="115" font-family="monospace" font-size="7" fill="#6B7A99" text-anchor="middle">"explain RAG..."</text>
+
+  <!-- ── FLOW ARROW: retriever → LLM ── -->
+  <path d="M345 250 L395 250" stroke="url(#flow)" stroke-width="2" fill="none"/>
+  <polygon points="395,246 409,250 395,254" fill="#22D3EE"/>
+
+  <!-- ── STAGE 4: LLM ── -->
+  <rect x="410" y="175" width="150" height="150" rx="14" fill="#0A1020" stroke="url(#accent)" stroke-width="2"/>
+  <!-- Brain/network icon inside -->
+  <circle cx="485" cy="235" r="38" fill="#22D3EE" opacity="0.04" filter="url(#soft)"/>
+  <!-- Simple neural net visual -->
+  <g stroke="#2546F0" stroke-width="1" opacity="0.5">
+    <line x1="440" y1="215" x2="470" y2="225"/><line x1="440" y1="235" x2="470" y2="225"/>
+    <line x1="440" y1="255" x2="470" y2="245"/>
+    <line x1="470" y1="225" x2="500" y2="235"/>
+    <line x1="470" y1="245" x2="500" y2="235"/>
+    <line x1="500" y1="235" x2="530" y2="225"/>
+    <line x1="500" y1="235" x2="530" y2="245"/>
+  </g>
+  <g fill="#22D3EE">
+    <circle cx="440" cy="215" r="4" opacity="0.7"/><circle cx="440" cy="235" r="4" opacity="0.7"/>
+    <circle cx="440" cy="255" r="4" opacity="0.7"/>
+    <circle cx="470" cy="225" r="5" opacity="0.9"/><circle cx="470" cy="245" r="5" opacity="0.9"/>
+    <circle cx="500" cy="235" r="6" opacity="1"/>
+    <circle cx="530" cy="225" r="4" opacity="0.7"/><circle cx="530" cy="245" r="4" opacity="0.7"/>
+  </g>
+  <text x="485" y="295" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">LLM</text>
+  <text x="485" y="308" font-family="monospace" font-size="7.5" fill="#6B7A99" text-anchor="middle">augmented context</text>
+
+  <!-- ── FLOW ARROW: LLM → output ── -->
+  <path d="M560 250 L610 250" stroke="url(#flow)" stroke-width="2" fill="none"/>
+  <polygon points="610,246 624,250 610,254" fill="#22D3EE"/>
+
+  <!-- ── STAGE 5: Grounded Answer ── -->
+  <rect x="625" y="195" width="140" height="110" rx="12" fill="#0A1020" stroke="#22D3EE" stroke-width="2"/>
+  <rect x="625" y="195" width="140" height="110" rx="12" fill="#22D3EE" opacity="0.04" filter="url(#soft)"/>
+  <circle cx="695" cy="230" r="16" fill="none" stroke="#22D3EE" stroke-width="2"/>
+  <path d="M685 230 L692 237 L707 222" stroke="#22D3EE" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="695" y="263" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">GROUNDED</text>
+  <text x="695" y="276" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">ANSWER</text>
+  <text x="695" y="292" font-family="monospace" font-size="7" fill="#6B7A99" text-anchor="middle">with citations</text>
+
+  <!-- Stage labels (top row) -->
+  <text x="215" y="460" font-family="monospace" font-size="8" fill="#6B7A99">① Ingest</text>
+  <text x="280" y="460" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="middle">② Retrieve</text>
+  <text x="485" y="460" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="middle">③ Generate</text>
+  <text x="695" y="460" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="middle">④ Output</text>
+
+  <!-- Title badge -->
+  <rect x="32" y="440" width="140" height="42" rx="8" fill="#080C18" stroke="url(#accent)" stroke-width="1"/>
+  <text x="102" y="458" font-family="sans-serif" font-size="10" fill="#22D3EE" text-anchor="middle" font-weight="bold">RAG Architecture</text>
+  <text x="102" y="472" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="middle">Hybrid · 2026</text>
+</svg>

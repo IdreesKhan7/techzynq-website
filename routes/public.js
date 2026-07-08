@@ -3,6 +3,7 @@ const router    = express.Router();
 const articles  = require('../models/articles');
 const messages  = require('../models/messages');
 const subs      = require('../models/subscribers');
+const { sendContactEmail, sendContactConfirmation } = require('../utils/mailer');
 
 // ─── Homepage ────────────────────────────────────────────────────────────────
 router.get('/', (req, res) => {
@@ -150,7 +151,17 @@ router.post('/contact', (req, res) => {
     });
   }
 
-  messages.createMessage({ name: name.trim(), email: email.trim(), reason, message: message.trim() });
+  const trimmed = { name: name.trim(), email: email.trim(), reason, message: message.trim() };
+
+  // Save to database (always)
+  messages.createMessage(trimmed);
+
+  // Send email notification (non-blocking — DB save already succeeded)
+  sendContactEmail(trimmed).then(result => {
+    if (!result.ok) console.warn('[contact] Email not sent:', result.error);
+  });
+  sendContactConfirmation({ name: trimmed.name, email: trimmed.email });
+
   res.render('contact', {
     title: 'Contact — TechZynq',
     description: 'Get in touch.',

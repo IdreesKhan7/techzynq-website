@@ -4,8 +4,10 @@
 <main>
   <!-- ── Hero ─────────────────────────────────────────────────────────── -->
   <% if (hero) {
-    const heroImg = hero.coverImage && !hero.coverImage.includes('placeholder')
-      ? hero.coverImage + '-lg.webp'
+    const heroImg = hero.coverImage
+      ? (/\.(svg|png|jpg|jpeg|webp|gif)$/i.test(hero.coverImage)
+          ? hero.coverImage
+          : hero.coverImage + '-lg.webp')
       : (hero.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg');
     const heroDate = hero.publishedAt ? new Date(hero.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '';
   %>
@@ -74,7 +76,7 @@
     <% if (latest && latest.length > 0) { %>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <!-- Featured (first article, spans 2 rows) -->
-      <% const feat = latest[0]; const featImg = feat.coverImage && !feat.coverImage.includes('placeholder') ? feat.coverImage + '-lg.webp' : (feat.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg'); const featDate = feat.publishedAt ? new Date(feat.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : ''; %>
+      <% const feat = latest[0]; const featImg = feat.coverImage ? (/\.(svg|png|jpg|jpeg|webp|gif)$/i.test(feat.coverImage) ? feat.coverImage : feat.coverImage + '-lg.webp') : (feat.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg'); const featDate = feat.publishedAt ? new Date(feat.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : ''; %>
       <a href="/article/<%= feat.slug %>" class="card group lg:row-span-2 flex flex-col h-full hover:shadow-glow-cyan hover:-translate-y-0.5 transition-all duration-300 fade-up">
         <div class="relative overflow-hidden h-56 lg:h-72 flex-shrink-0">
           <img src="<%= featImg %>" alt="<%= feat.title %>" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -95,7 +97,7 @@
       <!-- Remaining articles -->
       <% for (let i = 1; i < Math.min(latest.length, 6); i++) {
          const a = latest[i];
-         const aImg = a.coverImage && !a.coverImage.includes('placeholder') ? a.coverImage + '-md.webp' : (a.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg');
+         const aImg = a.coverImage ? (/\.(svg|png|jpg|jpeg|webp|gif)$/i.test(a.coverImage) ? a.coverImage : a.coverImage + '-md.webp') : (a.category === 'AI' ? '/images/placeholder-ai.svg' : '/images/placeholder-tech.svg');
          const aDate = a.publishedAt ? new Date(a.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '';
       %>
       <a href="/article/<%= a.slug %>" class="card group flex flex-row h-full hover:shadow-glow-cyan hover:-translate-y-0.5 transition-all duration-300 fade-up" style="animation-delay: <%= i*80 %>ms">

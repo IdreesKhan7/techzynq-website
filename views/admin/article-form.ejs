@@ -66,8 +66,8 @@
 
     <div>
       <label class="form-label">Cover Image</label>
-      <% if (article && article.coverImage && !article.coverImage.includes('placeholder')) { %>
-      <img src="<%= article.coverImage %>-sm.webp" class="w-32 h-20 object-cover rounded-lg mb-2 border border-brand-border" />
+      <% if (article && article.coverImage) { %>
+      <img src="<%= /\.(svg|png|jpg|jpeg|webp|gif)$/i.test(article.coverImage) ? article.coverImage : article.coverImage + '-sm.webp' %>" class="w-32 h-20 object-cover rounded-lg mb-2 border border-brand-border" />
       <% } %>
       <input type="file" name="coverImage" accept="image/*" class="form-input file:bg-brand-primary file:text-white file:border-0 file:rounded-md file:px-3 file:py-1.5 file:mr-3 file:text-xs" />
       <p class="text-xs text-brand-tertiary mt-1">Leave blank to keep existing image. Will be auto-resized to 3 sizes.</p>

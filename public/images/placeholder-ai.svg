@@ -1,27 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
   <defs>
-    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0B0F1A"/>
-      <stop offset="100%" stop-color="#11172A"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050810"/><stop offset="100%" stop-color="#0A0E1C"/>
     </linearGradient>
-    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2546F0"/>
-      <stop offset="100%" stop-color="#22D3EE"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2546F0"/><stop offset="100%" stop-color="#22D3EE"/>
     </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#2546F0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="6"/></filter>
   </defs>
-  <rect width="800" height="500" fill="url(#g1)"/>
-  <g opacity="0.5" stroke="#1C2236" stroke-width="1">
-    <line x1="0" y1="100" x2="800" y2="100"/>
-    <line x1="0" y1="250" x2="800" y2="250"/>
-    <line x1="0" y1="400" x2="800" y2="400"/>
-    <line x1="160" y1="0" x2="160" y2="500"/>
-    <line x1="400" y1="0" x2="400" y2="500"/>
-    <line x1="640" y1="0" x2="640" y2="500"/>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#131D30" stroke-width="0.5" opacity="0.7">
+    <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/><line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/><line x1="640" y1="0" x2="640" y2="500"/>
   </g>
-  <circle cx="160" cy="100" r="4" fill="#22D3EE" opacity="0.6"/>
-  <circle cx="640" cy="400" r="4" fill="#22D3EE" opacity="0.6"/>
-  <circle cx="400" cy="250" r="6" fill="#22D3EE"/>
-  <circle cx="400" cy="250" r="60" fill="none" stroke="url(#g2)" stroke-width="2" opacity="0.5"/>
-  <circle cx="400" cy="250" r="100" fill="none" stroke="url(#g2)" stroke-width="1" opacity="0.3"/>
-  <text x="400" y="258" font-family="monospace" font-size="14" fill="#22D3EE" text-anchor="middle" opacity="0.8">AI</text>
+  <circle cx="400" cy="250" r="140" fill="url(#glow)" filter="url(#blur)"/>
+  <circle cx="400" cy="250" r="100" fill="none" stroke="url(#accent)" stroke-width="1" stroke-dasharray="6 4" opacity="0.4"/>
+  <circle cx="400" cy="250" r="140" fill="none" stroke="#22D3EE" stroke-width="0.5" stroke-dasharray="3 8" opacity="0.2"/>
+  <g stroke="#22D3EE" stroke-width="0.8" opacity="0.2">
+    <line x1="400" y1="250" x2="180" y2="110"/><line x1="400" y1="250" x2="300" y2="80"/>
+    <line x1="400" y1="250" x2="500" y2="80"/><line x1="400" y1="250" x2="620" y2="110"/>
+    <line x1="400" y1="250" x2="650" y2="250"/><line x1="400" y1="250" x2="620" y2="390"/>
+    <line x1="400" y1="250" x2="500" y2="420"/><line x1="400" y1="250" x2="300" y2="420"/>
+    <line x1="400" y1="250" x2="180" y2="390"/><line x1="400" y1="250" x2="150" y2="250"/>
+  </g>
+  <g fill="#22D3EE">
+    <circle cx="180" cy="110" r="3.5" opacity="0.5"/><circle cx="300" cy="80" r="3" opacity="0.5"/>
+    <circle cx="500" cy="80" r="3" opacity="0.5"/><circle cx="620" cy="110" r="3.5" opacity="0.5"/>
+    <circle cx="650" cy="250" r="3.5" opacity="0.5"/><circle cx="620" cy="390" r="3" opacity="0.5"/>
+    <circle cx="500" cy="420" r="3" opacity="0.5"/><circle cx="300" cy="420" r="3" opacity="0.5"/>
+    <circle cx="180" cy="390" r="3.5" opacity="0.5"/><circle cx="150" cy="250" r="3.5" opacity="0.5"/>
+  </g>
+  <g fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.6">
+    <circle cx="400" cy="170" r="6"/><circle cx="462" cy="205" r="6"/><circle cx="462" cy="295" r="6"/>
+    <circle cx="400" cy="330" r="6"/><circle cx="338" cy="295" r="6"/><circle cx="338" cy="205" r="6"/>
+  </g>
+  <g stroke="#22D3EE" stroke-width="1.5" opacity="0.5">
+    <line x1="400" y1="170" x2="462" y2="205"/><line x1="462" y1="205" x2="462" y2="295"/>
+    <line x1="462" y1="295" x2="400" y2="330"/><line x1="400" y1="330" x2="338" y2="295"/>
+    <line x1="338" y1="295" x2="338" y2="205"/><line x1="338" y1="205" x2="400" y2="170"/>
+  </g>
+  <circle cx="400" cy="250" r="22" fill="url(#accent)" opacity="0.9"/>
+  <circle cx="400" cy="250" r="22" fill="url(#accent)" filter="url(#blur)" opacity="0.5"/>
+  <text x="400" y="244" font-family="monospace" font-size="8" fill="#fff" text-anchor="middle" font-weight="bold">TECH</text>
+  <text x="400" y="256" font-family="monospace" font-size="8" fill="#fff" text-anchor="middle" font-weight="bold">ZYNQ</text>
+  <rect x="32" y="440" width="48" height="22" rx="4" fill="#2546F0" opacity="0.9"/>
+  <text x="56" y="455" font-family="monospace" font-size="10" fill="#fff" text-anchor="middle" font-weight="bold">AI</text>
 </svg>

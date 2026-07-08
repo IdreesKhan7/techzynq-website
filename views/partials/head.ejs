@@ -12,7 +12,7 @@
   <meta property="og:type"        content="<%= typeof article !== 'undefined' ? 'article' : 'website' %>" />
   <meta property="og:url"         content="<%= typeof reqUrl !== 'undefined' ? reqUrl : '' %>" />
   <% if (typeof article !== 'undefined' && article && article.coverImage) { %>
-  <meta property="og:image"       content="<%= article.coverImage.includes('placeholder') ? '' : article.coverImage + '-lg.webp' %>" />
+  <meta property="og:image"       content="<%= /\.(svg|png|jpg|jpeg|webp|gif)$/i.test(article.coverImage) ? article.coverImage : article.coverImage + '-lg.webp' %>" />
   <% } %>
 
   <!-- Twitter Card -->

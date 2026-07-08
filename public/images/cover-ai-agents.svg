@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04060F"/>
+      <stop offset="100%" stop-color="#080C1C"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2546F0"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="arrow-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2546F0" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0.8"/>
+    </linearGradient>
+    <filter id="node-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g stroke="#111828" stroke-width="0.5" opacity="0.8">
+    <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="500"/><line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/><line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/><line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="700" y1="0" x2="700" y2="500"/>
+  </g>
+
+  <!-- ── Orchestrator node (center-left) ── -->
+  <!-- Glow -->
+  <circle cx="200" cy="250" r="48" fill="url(#accent)" opacity="0.15" filter="url(#soft)"/>
+  <!-- Hex shape (approx) -->
+  <polygon points="200,210 234,230 234,270 200,290 166,270 166,230" fill="#0D1428" stroke="url(#accent)" stroke-width="2"/>
+  <text x="200" y="245" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">ORCHESTRATOR</text>
+  <text x="200" y="258" font-family="monospace" font-size="7.5" fill="#6B7A99" text-anchor="middle">AI Agent</text>
+  <!-- Inner dot -->
+  <circle cx="200" cy="250" r="5" fill="#22D3EE" opacity="0.9"/>
+
+  <!-- ── Flow arrows from orchestrator ── -->
+  <!-- Arrow to top-right agent -->
+  <path d="M234 236 Q320 170 366 155" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+  <polygon points="366,151 378,155 366,159" fill="#22D3EE" opacity="0.8"/>
+
+  <!-- Arrow to middle-right agent -->
+  <path d="M234 250 L366 250" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none"/>
+  <polygon points="366,246 378,250 366,254" fill="#22D3EE" opacity="0.8"/>
+
+  <!-- Arrow to bottom-right agent -->
+  <path d="M234 264 Q320 330 366 345" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+  <polygon points="366,341 378,345 366,349" fill="#22D3EE" opacity="0.8"/>
+
+  <!-- ── Agent nodes (right cluster) ── -->
+  <!-- Agent 1: Code -->
+  <rect x="378" y="120" width="100" height="70" rx="10" fill="#0A1020" stroke="#2546F0" stroke-width="1.5"/>
+  <circle cx="378" cy="120" r="0" fill="none"/>
+  <!-- Icon: code brackets -->
+  <text x="402" y="147" font-family="monospace" font-size="14" fill="#2546F0" opacity="0.9">&lt;/&gt;</text>
+  <text x="428" y="147" font-family="monospace" font-size="8.5" fill="#22D3EE" font-weight="bold">Software</text>
+  <text x="428" y="159" font-family="monospace" font-size="7.5" fill="#6B7A99">Eng. Agent</text>
+  <rect x="390" y="165" width="76" height="2" rx="1" fill="#2546F0" opacity="0.5"/>
+  <text x="428" y="177" font-family="monospace" font-size="6.5" fill="#6B7A99" text-anchor="middle">end-to-end dev</text>
+
+  <!-- Agent 2: Finance -->
+  <rect x="378" y="215" width="100" height="70" rx="10" fill="#0A1020" stroke="#22D3EE" stroke-width="1.5"/>
+  <text x="402" y="242" font-family="monospace" font-size="14" fill="#22D3EE" opacity="0.9">$</text>
+  <text x="428" y="242" font-family="monospace" font-size="8.5" fill="#22D3EE" font-weight="bold">Finance</text>
+  <text x="428" y="254" font-family="monospace" font-size="7.5" fill="#6B7A99">Ops Agent</text>
+  <rect x="390" y="260" width="76" height="2" rx="1" fill="#22D3EE" opacity="0.5"/>
+  <text x="428" y="272" font-family="monospace" font-size="6.5" fill="#6B7A99" text-anchor="middle">reporting · audit</text>
+
+  <!-- Agent 3: Support -->
+  <rect x="378" y="310" width="100" height="70" rx="10" fill="#0A1020" stroke="#2546F0" stroke-width="1.5"/>
+  <text x="402" y="337" font-family="monospace" font-size="14" fill="#2546F0" opacity="0.9">@</text>
+  <text x="428" y="337" font-family="monospace" font-size="8.5" fill="#22D3EE" font-weight="bold">Support</text>
+  <text x="428" y="349" font-family="monospace" font-size="7.5" fill="#6B7A99">CX Agent</text>
+  <rect x="390" y="355" width="76" height="2" rx="1" fill="#2546F0" opacity="0.5"/>
+  <text x="428" y="367" font-family="monospace" font-size="6.5" fill="#6B7A99" text-anchor="middle">24/7 resolution</text>
+
+  <!-- ── Secondary arrows to output ── -->
+  <path d="M478 155 Q560 155 576 200" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+  <path d="M478 250 L576 250" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none"/>
+  <path d="M478 345 Q560 345 576 300" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+
+  <!-- ── Output / Human Review node ── -->
+  <circle cx="610" cy="250" r="42" fill="#0A1020" stroke="url(#accent)" stroke-width="2"/>
+  <circle cx="610" cy="250" r="42" fill="url(#accent)" opacity="0.06" filter="url(#soft)"/>
+  <!-- Check icon -->
+  <circle cx="610" cy="238" r="12" fill="none" stroke="#22D3EE" stroke-width="1.5"/>
+  <path d="M603 238 L608 243 L617 233" stroke="#22D3EE" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <text x="610" y="260" font-family="monospace" font-size="8" fill="#22D3EE" text-anchor="middle" font-weight="bold">HUMAN</text>
+  <text x="610" y="271" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="middle">REVIEW</text>
+
+  <!-- Final arrow -->
+  <path d="M652 250 L700 250" stroke="url(#arrow-grad)" stroke-width="2" fill="none"/>
+  <polygon points="700,246 714,250 700,254" fill="#22D3EE"/>
+
+  <!-- Output box -->
+  <rect x="715" y="230" width="68" height="40" rx="8" fill="#0A1020" stroke="#22D3EE" stroke-width="1"/>
+  <text x="749" y="248" font-family="monospace" font-size="8" fill="#22D3EE" text-anchor="middle" font-weight="bold">OUTPUT</text>
+  <text x="749" y="260" font-family="monospace" font-size="6.5" fill="#6B7A99" text-anchor="middle">approved</text>
+
+  <!-- $400M badge -->
+  <rect x="32" y="32" width="110" height="36" rx="8" fill="#0D1428" stroke="url(#accent)" stroke-width="1"/>
+  <text x="87" y="50" font-family="sans-serif" font-size="13" fill="#22D3EE" text-anchor="middle" font-weight="bold">$400M</text>
+  <text x="87" y="63" font-family="monospace" font-size="8" fill="#6B7A99" text-anchor="middle">Series B · 2026</text>
+
+  <!-- Floating data particles -->
+  <g fill="#2546F0" opacity="0.4">
+    <circle cx="90" cy="150" r="2"/><circle cx="130" cy="380" r="2"/><circle cx="670" cy="120" r="2"/><circle cx="740" cy="380" r="2"/>
+    <circle cx="50" cy="320" r="1.5"/><circle cx="310" cy="80" r="1.5"/><circle cx="310" cy="420" r="1.5"/>
+  </g>
+</svg>

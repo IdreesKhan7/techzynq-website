@@ -1,27 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
   <defs>
-    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0B0F1A"/>
-      <stop offset="100%" stop-color="#11172A"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050810"/><stop offset="100%" stop-color="#080C18"/>
     </linearGradient>
-    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#3B5BFF"/>
-      <stop offset="100%" stop-color="#22D3EE"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE"/><stop offset="100%" stop-color="#2546F0"/>
     </linearGradient>
+    <linearGradient id="chip-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#101828"/><stop offset="100%" stop-color="#0C1220"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#2546F0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="8"/></filter>
   </defs>
-  <rect width="800" height="500" fill="url(#g1)"/>
-  <g opacity="0.5" stroke="#1C2236" stroke-width="1">
-    <line x1="0" y1="120" x2="800" y2="120"/>
-    <line x1="0" y1="260" x2="800" y2="260"/>
-    <line x1="0" y1="380" x2="800" y2="380"/>
-    <line x1="200" y1="0" x2="200" y2="500"/>
-    <line x1="450" y1="0" x2="450" y2="500"/>
-    <line x1="600" y1="0" x2="600" y2="500"/>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g stroke="#111828" stroke-width="0.5" opacity="0.7">
+    <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/><line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/><line x1="640" y1="0" x2="640" y2="500"/>
   </g>
-  <rect x="340" y="190" width="120" height="120" rx="12" fill="none" stroke="url(#g2)" stroke-width="2" opacity="0.7"/>
-  <circle cx="340" cy="190" r="4" fill="#22D3EE"/>
-  <circle cx="460" cy="190" r="4" fill="#22D3EE"/>
-  <circle cx="340" cy="310" r="4" fill="#22D3EE"/>
-  <circle cx="460" cy="310" r="4" fill="#22D3EE"/>
-  <text x="400" y="256" font-family="monospace" font-size="14" fill="#22D3EE" text-anchor="middle" opacity="0.8">TECH</text>
+  <rect x="240" y="130" width="320" height="240" rx="12" fill="url(#glow)" filter="url(#blur)"/>
+  <rect x="240" y="130" width="320" height="240" rx="12" fill="url(#chip-body)" stroke="#1E2E50" stroke-width="2"/>
+  <g stroke="#182038" stroke-width="0.5">
+    <line x1="280" y1="130" x2="280" y2="370"/><line x1="320" y1="130" x2="320" y2="370"/>
+    <line x1="360" y1="130" x2="360" y2="370"/><line x1="400" y1="130" x2="400" y2="370"/>
+    <line x1="440" y1="130" x2="440" y2="370"/><line x1="480" y1="130" x2="480" y2="370"/>
+    <line x1="520" y1="130" x2="520" y2="370"/>
+    <line x1="240" y1="170" x2="560" y2="170"/><line x1="240" y1="210" x2="560" y2="210"/>
+    <line x1="240" y1="250" x2="560" y2="250"/><line x1="240" y1="290" x2="560" y2="290"/>
+    <line x1="240" y1="330" x2="560" y2="330"/>
+  </g>
+  <g fill="#0F1A2C" stroke="#22D3EE" stroke-width="1" opacity="0.6">
+    <rect x="255" y="148" width="70" height="55" rx="5"/>
+    <rect x="465" y="148" width="70" height="55" rx="5"/>
+    <rect x="255" y="297" width="70" height="55" rx="5"/>
+    <rect x="465" y="297" width="70" height="55" rx="5"/>
+  </g>
+  <g fill="#22D3EE" opacity="0.08">
+    <rect x="255" y="148" width="70" height="55" rx="5"/>
+    <rect x="465" y="148" width="70" height="55" rx="5"/>
+    <rect x="255" y="297" width="70" height="55" rx="5"/>
+    <rect x="465" y="297" width="70" height="55" rx="5"/>
+  </g>
+  <g font-family="monospace" font-size="7.5" fill="#22D3EE" text-anchor="middle" opacity="0.7">
+    <text x="290" y="179">CORE</text><text x="290" y="189">01</text>
+    <text x="500" y="179">CORE</text><text x="500" y="189">02</text>
+    <text x="290" y="328">CORE</text><text x="290" y="338">03</text>
+    <text x="500" y="328">CORE</text><text x="500" y="338">04</text>
+  </g>
+  <rect x="348" y="210" width="104" height="80" rx="6" fill="#091220" stroke="url(#accent)" stroke-width="1.5"/>
+  <text x="400" y="246" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">SYSTEM</text>
+  <text x="400" y="259" font-family="monospace" font-size="9" fill="#22D3EE" text-anchor="middle" font-weight="bold">BUS</text>
+  <g stroke="#22D3EE" stroke-width="1.5" opacity="0.4">
+    <line x1="218" y1="165" x2="240" y2="165"/><line x1="218" y1="185" x2="240" y2="185"/>
+    <line x1="218" y1="205" x2="240" y2="205"/><line x1="218" y1="225" x2="240" y2="225"/>
+    <line x1="218" y1="275" x2="240" y2="275"/><line x1="218" y1="295" x2="240" y2="295"/>
+    <line x1="218" y1="315" x2="240" y2="315"/><line x1="218" y1="335" x2="240" y2="335"/>
+    <line x1="560" y1="165" x2="582" y2="165"/><line x1="560" y1="185" x2="582" y2="185"/>
+    <line x1="560" y1="205" x2="582" y2="205"/><line x1="560" y1="225" x2="582" y2="225"/>
+    <line x1="560" y1="275" x2="582" y2="275"/><line x1="560" y1="295" x2="582" y2="295"/>
+    <line x1="560" y1="315" x2="582" y2="315"/><line x1="560" y1="335" x2="582" y2="335"/>
+    <line x1="295" y1="108" x2="295" y2="130"/><line x1="335" y1="108" x2="335" y2="130"/>
+    <line x1="375" y1="108" x2="375" y2="130"/><line x1="415" y1="108" x2="415" y2="130"/>
+    <line x1="455" y1="108" x2="455" y2="130"/><line x1="495" y1="108" x2="495" y2="130"/>
+    <line x1="295" y1="370" x2="295" y2="392"/><line x1="335" y1="370" x2="335" y2="392"/>
+    <line x1="375" y1="370" x2="375" y2="392"/><line x1="415" y1="370" x2="415" y2="392"/>
+    <line x1="455" y1="370" x2="455" y2="392"/><line x1="495" y1="370" x2="495" y2="392"/>
+  </g>
+  <g fill="#22D3EE" opacity="0.7">
+    <circle cx="218" cy="165" r="2.5"/><circle cx="218" cy="205" r="2.5"/>
+    <circle cx="218" cy="295" r="2.5"/><circle cx="218" cy="335" r="2.5"/>
+    <circle cx="582" cy="185" r="2.5"/><circle cx="582" cy="225" r="2.5"/>
+    <circle cx="582" cy="275" r="2.5"/><circle cx="582" cy="315" r="2.5"/>
+  </g>
+  <rect x="32" y="440" width="60" height="22" rx="4" fill="#22D3EE" opacity="0.15" stroke="#22D3EE" stroke-width="1"/>
+  <text x="62" y="455" font-family="monospace" font-size="9.5" fill="#22D3EE" text-anchor="middle" font-weight="bold">TECH</text>
+  <g fill="#22D3EE" opacity="0.25">
+    <circle cx="100" cy="100" r="1.5"/><circle cx="700" cy="100" r="1.5"/>
+    <circle cx="100" cy="400" r="1.5"/><circle cx="700" cy="400" r="1.5"/>
+  </g>
 </svg>
