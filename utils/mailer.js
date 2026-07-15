@@ -11,6 +11,12 @@ function getTransporter() {
   const pass = process.env.SMTP_PASS;
 
   if (!host || !user || !pass) {
+    console.warn('[mailer] SMTP not configured — set SMTP_HOST, SMTP_USER and SMTP_PASS in .env. Contact form emails will NOT be sent.');
+    return null;
+  }
+
+  if (/your-16-char-app-password/i.test(pass) || pass === 'changeme') {
+    console.warn('[mailer] SMTP_PASS in .env is still the placeholder value. Create a Gmail App Password at https://myaccount.google.com/apppasswords and paste it there. Contact form emails will NOT be sent until then.');
     return null;
   }
 
