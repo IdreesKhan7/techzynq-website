@@ -267,6 +267,33 @@
       "message": "End-to-end contact form debug test",
       "submittedAt": "2026-07-15T20:19:26.638Z",
       "read": false
+    },
+    {
+      "id": "c1867a6a-7c5f-4990-81fd-633b013168ab",
+      "name": "Reliability Test 1",
+      "email": "kingidrees14310@gmail.com",
+      "reason": "General Question",
+      "message": "Contact form reliability test number 1 after SMTP reconfiguration",
+      "submittedAt": "2026-07-19T19:52:05.495Z",
+      "read": false
+    },
+    {
+      "id": "af61e0c0-8ff9-4977-a796-f3aa3a9f86e0",
+      "name": "Reliability Test 2",
+      "email": "kingidrees14310@gmail.com",
+      "reason": "General Question",
+      "message": "Contact form reliability test number 2 after SMTP reconfiguration",
+      "submittedAt": "2026-07-19T19:52:05.706Z",
+      "read": false
+    },
+    {
+      "id": "59be3a3e-880b-4698-b1d3-96b3817e46e7",
+      "name": "Reliability Test 3",
+      "email": "kingidrees14310@gmail.com",
+      "reason": "General Question",
+      "message": "Contact form reliability test number 3 after SMTP reconfiguration",
+      "submittedAt": "2026-07-19T19:52:05.853Z",
+      "read": false
     }
   ],
   "subscribers": [
@@ -274,6 +301,16 @@
       "id": "70fa6c13-8fe6-4473-b843-968078e6217c",
       "email": "subscriber@example.com",
       "subscribedAt": "2026-06-30T20:05:30.497Z"
+    },
+    {
+      "id": "8ee27afd-afd6-41eb-aac3-e6f558255345",
+      "email": "newsub-test-1@example.com",
+      "subscribedAt": "2026-07-19T19:52:05.197Z"
+    },
+    {
+      "id": "13e97235-8033-44e5-9e72-e06e996d5f5e",
+      "email": "browser-ui-test@example.com",
+      "subscribedAt": "2026-07-19T19:52:32.024Z"
     }
   ]
 }

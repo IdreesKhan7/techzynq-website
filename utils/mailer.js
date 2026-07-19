@@ -15,8 +15,8 @@ function getTransporter() {
     return null;
   }
 
-  if (/your-16-char-app-password/i.test(pass) || pass === 'changeme') {
-    console.warn('[mailer] SMTP_PASS in .env is still the placeholder value. Create a Gmail App Password at https://myaccount.google.com/apppasswords and paste it there. Contact form emails will NOT be sent until then.');
+  if (/^your-.*-(password|here)/i.test(pass) || /password-here$/i.test(pass) || pass === 'changeme') {
+    console.warn('[mailer] SMTP_PASS in .env is still a placeholder value. Paste the real password for ' + user + ' there. Contact form emails will NOT be sent until then.');
     return null;
   }
 

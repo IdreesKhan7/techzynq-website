@@ -87,6 +87,10 @@ searchInput?.addEventListener('input', () => {
 // ── Newsletter forms ──────────────────────────────────────────────────────────
 async function handleNewsletter(form, msgEl) {
   const email = form.querySelector('[name=email]').value;
+  const btn = form.querySelector('button[type=submit]');
+  const btnLabel = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
+  msgEl.classList.add('hidden');
   try {
     const res  = await fetch('/subscribe', {
       method: 'POST',
@@ -95,9 +99,18 @@ async function handleNewsletter(form, msgEl) {
     });
     const data = await res.json();
     msgEl.textContent = data.message;
+    msgEl.classList.toggle('text-brand-cyan', data.ok);
+    msgEl.classList.toggle('text-red-400', !data.ok);
     msgEl.classList.remove('hidden');
     if (data.ok) form.reset();
-  } catch (e) { console.error(e); }
+  } catch (e) {
+    msgEl.textContent = 'Something went wrong. Please try again.';
+    msgEl.classList.remove('text-brand-cyan');
+    msgEl.classList.add('text-red-400');
+    msgEl.classList.remove('hidden');
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+  }
 }
 
 document.getElementById('footer-newsletter')?.addEventListener('submit', e => {

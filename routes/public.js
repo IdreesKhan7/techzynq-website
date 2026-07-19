@@ -174,8 +174,9 @@ router.post('/contact', (req, res) => {
 // ─── Newsletter subscribe ────────────────────────────────────────────────────
 router.post('/subscribe', (req, res) => {
   const { email } = req.body;
-  if (!email || !email.includes('@')) {
-    return res.json({ ok: false, message: 'Please enter a valid email.' });
+  const valid = typeof email === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+  if (!valid) {
+    return res.json({ ok: false, message: 'Please enter a valid email address.' });
   }
   const { created } = subs.addSubscriber(email.trim().toLowerCase());
   res.json({ ok: true, created, message: created ? 'Thanks for subscribing!' : 'You\'re already subscribed.' });
