@@ -19,8 +19,11 @@
 
   <!-- Hero image -->
   <div class="relative h-72 md:h-[480px] overflow-hidden">
-    <img src="<%= imgSrc %>" alt="<%= article.title %>" class="w-full h-full object-cover" />
+    <img src="<%= imgSrc %>" alt="<%= article.title %>" width="1280" height="800" fetchpriority="high" class="w-full h-full object-cover" />
     <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 30%, #05070D 100%)"></div>
+    <% if (article.coverCredit) { %>
+    <p class="absolute bottom-2 right-3 text-[10px] text-brand-tertiary/70 font-mono z-10"><%= article.coverCredit %></p>
+    <% } %>
   </div>
 
   <!-- Article container -->
