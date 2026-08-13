@@ -5,7 +5,7 @@
       "title": "Anthropic Launches Claude Opus 5 Without Raising the Price",
       "slug": "anthropic-claude-opus-5-launch",
       "excerpt": "Claude Opus 5 arrived on 24 July 2026 at the same price as the previous generation — $5 and $25 per million tokens. Why holding prices flat is the real story behind the launch.",
-      "coverImage": "/images/covers/claude-opus-5-launch",
+      "coverImage": "/images/covers/ai-model-workspace-desk",
       "body": "<p>Anthropic released Claude Opus 5 on 24 July 2026, and the notable detail is not the benchmark scores — it is the price. The company's new flagship model launched at <strong>$5 per million input tokens and $25 per million output tokens</strong>, the same rate as its previous Opus generation, while offering capability the company positions near the top of its lineup.</p>\n\n<h2>What was announced</h2>\n\n<p>The model became available across Claude.ai, Claude Code, and the Anthropic API at launch. Beyond the headline rate, the published pricing includes several options that materially change real-world costs:</p>\n\n<ul>\n  <li><strong>Standard rate:</strong> $5 per million input tokens, $25 per million output tokens.</li>\n  <li><strong>Cache hits:</strong> $0.50 per million tokens, a steep discount for repeated context.</li>\n  <li><strong>Batch processing:</strong> $2.50 / $12.50 per million, for work that is not time-sensitive.</li>\n  <li><strong>Fast mode:</strong> $10 / $50 per million, for latency-critical applications.</li>\n</ul>\n\n<p>Reporting around the launch places Opus 5 at roughly half the cost of the previous top-tier frontier tier while performing competitively against it on several benchmarks. As always with vendor-published benchmark claims, independent evaluation on your own workload matters more than any published table.</p>\n\n<h2>Holding price flat is the strategy</h2>\n\n<p>The most interesting decision here is what did not change. Anthropic kept Opus 5 at the same sticker price as its predecessor rather than charging a premium for improved capability. In a market where each generation once commanded a higher rate, flat pricing with better performance is effectively a price cut.</p>\n\n<p>That fits the pattern we documented in the <a href=\"/article/ai-price-war-best-fit-wins-2026\">2026 AI price war</a>: capability keeps improving while the cost of accessing it falls. It also mirrors the tiering logic behind <a href=\"/article/openai-gpt5-6-lineup-sol-terra-luna\">OpenAI's GPT-5.6 lineup</a>, where buyers are steered toward matching the model to the task rather than always paying for the flagship.</p>\n\n<h2>Why the pricing modes matter more than the headline</h2>\n\n<p>For anyone actually building on these models, the modifiers matter as much as the base rate. Cache hits at $0.50 per million tokens mean that applications repeatedly sending the same context — documentation, system instructions, retrieved documents — pay a fraction of the standard rate. That structure specifically rewards <a href=\"/article/rag-still-most-practical-ai-architecture\">retrieval-augmented applications</a>, which resend large amounts of stable context on every request.</p>\n\n<p>Batch pricing similarly rewards workloads that can wait: bulk classification, document processing, and overnight analysis can run at half price. The practical lesson is that two teams using the identical model can face very different bills depending on how they architect their requests.</p>\n\n<h2>Background: what \"frontier\" now means</h2>\n\n<p>Two years ago, a new frontier model meant a clear capability jump and a price to match. In 2026 the picture is different. Several labs ship models close enough in capability that most buyers cannot tell the difference on ordinary tasks, and competition has shifted to cost, speed, and reliability.</p>\n\n<p>The result is a market where the top tier keeps getting cheaper in real terms, and where <a href=\"/article/open-vs-closed-ai-models-2026\">open-weight models</a> set a hard price floor underneath everything. Providers are responding by competing on the economics of deployment rather than on raw capability alone.</p>\n\n<h2>Why it matters</h2>\n\n<p>For developers and businesses, a frontier-class model at unchanged prices lowers the cost of ambitious applications — particularly agent-style systems that make many model calls per task, where per-token savings compound quickly. For the industry, it is another data point that the era of paying premium prices for each new generation is over.</p>\n\n<p>The open question is how long this is sustainable. Serving frontier models is genuinely expensive, and providers are absorbing costs while competing on price. That dynamic is excellent for buyers today, but it is not obviously stable.</p>\n\n<h2>Key takeaways</h2>\n\n<ul>\n  <li>Anthropic launched Claude Opus 5 on 24 July 2026 across Claude.ai, Claude Code, and its API.</li>\n  <li>Pricing held flat at $5 per million input and $25 per million output tokens — the same as the previous generation.</li>\n  <li>Cache hits ($0.50/M), batch ($2.50/$12.50), and fast mode ($10/$50) substantially change real costs.</li>\n  <li>Flat pricing with improved capability functions as an effective price cut.</li>\n  <li>Vendor benchmark claims should be verified against your own workload before switching.</li>\n</ul>\n\n<h2>The bottom line</h2>\n\n<p>Claude Opus 5 is less a story about a smarter model than about a market where frontier capability no longer commands a rising price. For anyone building with AI, that is the more consequential development.</p>",
       "category": "AI",
       "tags": [
@@ -21,9 +21,9 @@
       "status": "published",
       "isBreaking": true,
       "publishedAt": "2026-07-26T09:00:00.000Z",
-      "updatedAt": "2026-07-26T09:00:00.000Z",
+      "updatedAt": "2026-08-13T20:56:16.162Z",
       "readTimeMinutes": 6,
-      "views": 4
+      "views": 9
     },
     {
       "id": "a1b2c3d4-0027-0027-0027-000000000027",
@@ -48,7 +48,7 @@
       "publishedAt": "2026-07-26T11:30:00.000Z",
       "updatedAt": "2026-07-26T11:30:00.000Z",
       "readTimeMinutes": 7,
-      "views": 4
+      "views": 6
     },
     {
       "id": "a1b2c3d4-0028-0028-0028-000000000028",
@@ -73,7 +73,7 @@
       "publishedAt": "2026-07-26T14:30:00.000Z",
       "updatedAt": "2026-07-26T14:30:00.000Z",
       "readTimeMinutes": 7,
-      "views": 4
+      "views": 6
     },
     {
       "id": "a1b2c3d4-0023-0023-0023-000000000023",
@@ -98,7 +98,7 @@
       "publishedAt": "2026-07-25T09:00:00.000Z",
       "updatedAt": "2026-07-25T09:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 6
+      "views": 8
     },
     {
       "id": "a1b2c3d4-0024-0024-0024-000000000024",
@@ -124,7 +124,7 @@
       "publishedAt": "2026-07-25T11:30:00.000Z",
       "updatedAt": "2026-07-25T11:30:00.000Z",
       "readTimeMinutes": 7,
-      "views": 7
+      "views": 9
     },
     {
       "id": "a1b2c3d4-0025-0025-0025-000000000025",
@@ -149,7 +149,7 @@
       "publishedAt": "2026-07-25T14:30:00.000Z",
       "updatedAt": "2026-07-26T16:00:00.000Z",
       "readTimeMinutes": 7,
-      "views": 6
+      "views": 8
     },
     {
       "id": "a1b2c3d4-0020-0020-0020-000000000020",
@@ -174,7 +174,7 @@
       "publishedAt": "2026-07-24T09:00:00.000Z",
       "updatedAt": "2026-07-25T16:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 9
+      "views": 11
     },
     {
       "id": "a1b2c3d4-0021-0021-0021-000000000021",
@@ -199,7 +199,7 @@
       "publishedAt": "2026-07-24T12:00:00.000Z",
       "updatedAt": "2026-07-24T12:00:00.000Z",
       "readTimeMinutes": 7,
-      "views": 5
+      "views": 7
     },
     {
       "id": "a1b2c3d4-0022-0022-0022-000000000022",
@@ -224,7 +224,7 @@
       "publishedAt": "2026-07-24T15:00:00.000Z",
       "updatedAt": "2026-07-24T15:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 6
+      "views": 8
     },
     {
       "id": "a1b2c3d4-0017-0017-0017-000000000017",
@@ -249,7 +249,7 @@
       "publishedAt": "2026-07-23T09:00:00.000Z",
       "updatedAt": "2026-07-26T16:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 9
+      "views": 11
     },
     {
       "id": "a1b2c3d4-0018-0018-0018-000000000018",
@@ -274,7 +274,7 @@
       "publishedAt": "2026-07-23T11:30:00.000Z",
       "updatedAt": "2026-07-26T17:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 7
+      "views": 9
     },
     {
       "id": "a1b2c3d4-0019-0019-0019-000000000019",
@@ -299,7 +299,7 @@
       "publishedAt": "2026-07-23T14:00:00.000Z",
       "updatedAt": "2026-07-26T17:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 9
+      "views": 11
     },
     {
       "id": "a1b2c3d4-0014-0014-0014-000000000014",
@@ -325,7 +325,7 @@
       "publishedAt": "2026-07-22T09:00:00.000Z",
       "updatedAt": "2026-07-23T15:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 7
+      "views": 9
     },
     {
       "id": "a1b2c3d4-0015-0015-0015-000000000015",
@@ -351,7 +351,7 @@
       "publishedAt": "2026-07-22T13:00:00.000Z",
       "updatedAt": "2026-07-25T16:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 11
+      "views": 13
     },
     {
       "id": "a1b2c3d4-0016-0016-0016-000000000016",
@@ -376,7 +376,7 @@
       "publishedAt": "2026-07-22T10:30:00.000Z",
       "updatedAt": "2026-07-26T17:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 8
+      "views": 10
     },
     {
       "id": "a1b2c3d4-0010-0010-0010-000000000010",
@@ -401,7 +401,7 @@
       "publishedAt": "2026-07-21T13:00:00.000Z",
       "updatedAt": "2026-07-26T17:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 15
+      "views": 17
     },
     {
       "id": "a1b2c3d4-0011-0011-0011-000000000011",
@@ -426,14 +426,14 @@
       "publishedAt": "2026-07-21T09:30:00.000Z",
       "updatedAt": "2026-07-26T16:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 9
+      "views": 11
     },
     {
       "id": "a1b2c3d4-0012-0012-0012-000000000012",
       "title": "OpenAI Ships GPT-5.6 as Three Tiers: Sol, Terra, and Luna",
       "slug": "openai-gpt5-6-lineup-sol-terra-luna",
       "excerpt": "GPT-5.6 reached general availability on 9 July 2026 — not as one flagship but as three tiers tuned for capability, speed, and cost. Here is what Sol, Terra, and Luna each do and what it signals.",
-      "coverImage": "/images/covers/gpt5-6-network",
+      "coverImage": "/images/covers/model-tiers-staircase",
       "body": "<p>OpenAI has moved its GPT-5.6 family to general availability, and the headline is not a single model but a menu. Instead of one flagship, GPT-5.6 arrives as three tiers — <strong>Sol</strong>, <strong>Terra</strong>, and <strong>Luna</strong> — each tuned for a different balance of capability, speed, and cost. It reached general availability on 9 July 2026 across ChatGPT, Codex, and the OpenAI API, following a limited preview that opened in late June.</p>\n\n<h2>Three models, three jobs</h2>\n\n<p>The lineup is designed so that buyers pick by task rather than defaulting to the most expensive option:</p>\n\n<ul>\n  <li><strong>Sol — the flagship.</strong> The most capable and the most expensive, with the deepest reasoning. OpenAI positions it at the top of its agentic-coding benchmark, aimed at the hardest problems.</li>\n  <li><strong>Terra — the workhorse.</strong> Pitched as the sensible default for most production workloads: competitive with the previous generation's quality while costing meaningfully less.</li>\n  <li><strong>Luna — the sprinter.</strong> The fastest and cheapest, built for high-volume, latency-sensitive jobs where flagship-grade reasoning would be overkill.</li>\n</ul>\n\n<h2>What OpenAI is signaling</h2>\n\n<p>Splitting a release into named tiers is itself the story. It is an admission that most tasks don't need a flagship, and an invitation to route work to the cheapest tier that clears the bar. That maps directly onto the broader <a href=\"/article/ai-price-war-best-fit-wins-2026\">2026 AI price war</a>, where \"best fit wins\" has replaced \"best model wins.\" Sol competes on the frontier; Terra and Luna compete on economics.</p>\n\n<p>OpenAI also kept its steep discount for cached input reads, which lowers the real cost of retrieval-heavy and repetitive applications — the kind that power most production assistants.</p>\n\n<h2>What it means for developers</h2>\n\n<p>For teams building on the API, the practical move is to stop treating \"GPT-5.6\" as one thing. The efficient pattern is to default to Terra or Luna, measure quality on your own task, and escalate to Sol only where the harder reasoning changes the outcome. Long <a href=\"/article/what-is-an-ai-agent-explained\">agent</a> runs in particular benefit from putting a cheaper tier on the bulk of steps and reserving the flagship for the genuinely difficult ones.</p>\n\n<h2>A note on access and claims</h2>\n\n<p>Reporting around the launch has been mixed on the finer points of availability and rollout, and pricing continues to shift as competitors respond. Treat specific per-token figures as provisional and confirm them against OpenAI's official pricing page before budgeting. What is well established is the shape of the release: three tiers, general availability on 9 July 2026, and a clear push toward cost-aware model selection.</p>\n\n<h2>Key takeaways</h2>\n\n<ul>\n  <li>GPT-5.6 launched as three tiers — Sol (flagship), Terra (workhorse), and Luna (fast and cheap) — reaching general availability on 9 July 2026.</li>\n  <li>It is available across ChatGPT, Codex, and the OpenAI API.</li>\n  <li>The tiered design pushes developers to route each task to the cheapest capable model.</li>\n  <li>Cached-read discounts continue to cut costs for retrieval-heavy apps.</li>\n  <li>Exact pricing and access details are still moving — verify against OpenAI's official pages.</li>\n</ul>\n\n<h2>The bottom line</h2>\n\n<p>GPT-5.6 is less a leap in raw intelligence than a statement about how AI will be bought: as a tiered utility, matched to the job. The frontier still matters — but with Terra and Luna, OpenAI is competing just as hard on price and speed as on reasoning.</p><p><em>Background: <a href=\"/article/openai-gpt5-redefines-ai-reasoning\">our original coverage of GPT-5's reasoning leap</a>.</em></p><p><em>Compare: <a href=\"/article/anthropic-claude-opus-5-launch\">Anthropic's Claude Opus 5 launch and pricing</a>.</em></p>",
       "category": "AI",
       "tags": [
@@ -449,9 +449,9 @@
       "status": "published",
       "isBreaking": true,
       "publishedAt": "2026-07-21T15:00:00.000Z",
-      "updatedAt": "2026-07-26T17:00:00.000Z",
+      "updatedAt": "2026-08-13T20:56:16.164Z",
       "readTimeMinutes": 5,
-      "views": 10
+      "views": 15
     },
     {
       "id": "a1b2c3d4-0013-0013-0013-000000000013",
@@ -476,7 +476,7 @@
       "publishedAt": "2026-07-21T11:00:00.000Z",
       "updatedAt": "2026-07-23T15:00:00.000Z",
       "readTimeMinutes": 5,
-      "views": 7
+      "views": 9
     },
     {
       "id": "a1b2c3d4-0009-0009-0009-000000000009",
@@ -501,7 +501,7 @@
       "publishedAt": "2026-07-21T13:00:00.000Z",
       "updatedAt": "2026-07-26T16:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 8
+      "views": 10
     },
     {
       "id": "a1b2c3d4-0001-0001-0001-000000000001",
@@ -526,7 +526,7 @@
       "publishedAt": "2026-06-28T09:00:00.000Z",
       "updatedAt": "2026-07-26T16:00:00.000Z",
       "readTimeMinutes": 4,
-      "views": 1298
+      "views": 1300
     },
     {
       "id": "a1b2c3d4-0002-0002-0002-000000000002",
@@ -551,7 +551,7 @@
       "publishedAt": "2026-06-27T11:30:00.000Z",
       "updatedAt": "2026-07-26T16:00:00.000Z",
       "readTimeMinutes": 5,
-      "views": 883
+      "views": 885
     },
     {
       "id": "a1b2c3d4-0003-0003-0003-000000000003",
@@ -576,7 +576,7 @@
       "publishedAt": "2026-06-26T08:00:00.000Z",
       "updatedAt": "2026-07-22T14:00:00.000Z",
       "readTimeMinutes": 5,
-      "views": 746
+      "views": 748
     },
     {
       "id": "a1b2c3d4-0004-0004-0004-000000000004",
@@ -601,14 +601,14 @@
       "publishedAt": "2026-06-25T14:00:00.000Z",
       "updatedAt": "2026-07-26T17:00:00.000Z",
       "readTimeMinutes": 5,
-      "views": 628
+      "views": 630
     },
     {
       "id": "a1b2c3d4-0005-0005-0005-000000000005",
       "title": "Why Retrieval-Augmented Generation Is Still the Most Practical AI Architecture",
       "slug": "rag-still-most-practical-ai-architecture",
       "excerpt": "As context windows grow and models get smarter, some argued that RAG would become obsolete. A year on, the opposite has happened — RAG is maturing into the backbone of enterprise AI. Here's why.",
-      "coverImage": "/images/covers/data-network-particles",
+      "coverImage": "/images/covers/knowledge-base-library-books",
       "body": "<p>Retrieval-Augmented Generation (RAG) was supposed to be a stopgap — a clever workaround for models with tiny context windows. Now that GPT-4o can hold a million tokens and Gemini 1.5 Pro can process an entire codebase in one shot, the critics said RAG's days were numbered.</p><p>They were wrong.</p><h2>The Case for RAG in 2026</h2><p>Large context windows solve the \"can the model see all the information\" problem. They don't solve the \"does the model know which information matters\" problem. In a 1M-token context, a model still has to attend to the relevant passages — and attention is computationally expensive and imperfect at extreme lengths.</p><p>RAG pre-solves this by fetching only the most relevant chunks before the model ever sees them. The result is faster inference, lower cost per query, and — crucially — a smaller attack surface for prompt injection, since irrelevant documents are never in the context.</p><h2>Hybrid Search is the Real Innovation</h2><p>Modern RAG stacks combine dense vector search (semantic similarity) with sparse BM25 search (keyword matching) in a hybrid retrieval step. This \"best of both worlds\" approach catches both conceptually related content and exact keyword matches — something pure vector search struggles with for names, SKUs, and technical terms.</p><blockquote>\"Every production RAG system I've audited uses hybrid search. Pure vector search sounds elegant in demos. It leaks relevance in production.\" — ML Engineer, fintech company.</blockquote><h2>Where It Still Falls Short</h2><p>Multi-hop reasoning remains the hard problem. If answering a question requires synthesising information from three documents that don't obviously relate to each other, standard RAG will miss the connection. Active research into \"graph RAG\" and iterative retrieval is promising, but not yet production-ready for most teams.</p><p><em>Related reading: <a href=\"/article/what-is-an-ai-agent-explained\">what is an AI agent?</a> and <a href=\"/article/open-vs-closed-ai-models-2026\">choosing between open and closed models</a>.</em></p>",
       "category": "AI",
       "tags": [
@@ -624,9 +624,9 @@
       "status": "published",
       "isBreaking": false,
       "publishedAt": "2026-06-24T10:00:00.000Z",
-      "updatedAt": "2026-07-26T16:00:00.000Z",
+      "updatedAt": "2026-08-13T20:56:16.164Z",
       "readTimeMinutes": 6,
-      "views": 519
+      "views": 524
     },
     {
       "id": "a1b2c3d4-0006-0006-0006-000000000006",
@@ -651,7 +651,7 @@
       "publishedAt": "2026-06-23T08:30:00.000Z",
       "updatedAt": "2026-07-25T16:00:00.000Z",
       "readTimeMinutes": 6,
-      "views": 901,
+      "views": 903,
       "coverCredit": "Photo: Ka Kit Pang, CC BY 3.0, via Wikimedia Commons"
     },
     {
@@ -677,7 +677,7 @@
       "publishedAt": "2026-06-22T07:00:00.000Z",
       "updatedAt": "2026-07-24T16:00:00.000Z",
       "readTimeMinutes": 5,
-      "views": 1109
+      "views": 1111
     },
     {
       "id": "a1b2c3d4-0008-0008-0008-000000000008",
@@ -702,7 +702,7 @@
       "publishedAt": "2026-06-21T09:00:00.000Z",
       "updatedAt": "2026-07-26T16:00:00.000Z",
       "readTimeMinutes": 5,
-      "views": 472
+      "views": 474
     }
   ],
   "messages": [
