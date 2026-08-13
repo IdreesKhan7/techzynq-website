@@ -30,8 +30,12 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1d' }));
 
 // Expose request path / url to all views (used for active nav state, OG tags)
+// siteOrigin is required because Open Graph / Twitter Card images must be
+// absolute URLs — social crawlers cannot resolve relative paths.
 app.use((req, res, next) => {
-  res.locals.reqUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+  const origin = process.env.SITE_URL || `${req.protocol}://${req.get('host')}`;
+  res.locals.siteOrigin = origin.replace(/\/$/, '');
+  res.locals.reqUrl = `${res.locals.siteOrigin}${req.originalUrl}`;
   next();
 });
 
